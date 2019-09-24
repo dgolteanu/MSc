@@ -3,4 +3,14 @@
 ### 2019/09/23
 MSc git repository was created on Daniel's local machine and
 
-I have a modified genotyping call file ` NMRI_calls.csv, CD1_calls.csv` for CD-1 and NMRI mice strains provided by Hailie Pavanel. Nick Boehler provided annotation files ` MDGA_Annotation.csv, `created by the Hill lab for the Affymetrix MDGA microarray probes used in our lab.Kathleen Hill provided a file containing clustering information for 800 mice within the Jackson laboratory database `url` looking at combining a SNP genotyping call file 
+I have a modified genotyping call file ` NMRI_calls.csv, CD1_calls.csv` for CD-1 and NMRI mice strains provided by Hailie Pavanel. Nick Boehler & Hailie Pavanel provided genome position annotation files ` MDGA_Annotation.csv,MDGA_functional_anno.csv ` respectively, created by the Hill lab for the Affymetrix MDGA microarray probes used in our lab. Kathleen Hill provided a file `MLDSP_labels.csv` containing clustering information for 800 mice within the Jackson laboratory database `url` for use as feature labels in training the Machine learning (ML) alogorithm of MLDSP.
+
+I am importing the data files into R data frames as they're too large to open in excel. The data frame will be a matrix of SNP calls with  probes as rownames and samples as colnames.
+
+I am looking at merging an SNP genotyping call file with the probe annotations (Chromosome number `Affy.chr..build.38.` & Chromosome nucleotide position `Affy.position..build.38.`) inserted as 2nd & 3rd columns respectively, next I am looking at inserting the ML labels as the 2nd row, finally all the run information lines above the sample names will be removed to make the sample names row \# 1.
+
+This is a proof of principle as we wait for the 800 mice to be genotyped, and will be combined into an R script to automate genotyping data formatting for input into MLDSP.
+
+Imported `MDGA_Annotation.csv` as `annotated_probes` variable in R
+#### These steps are for Affymetrix power tools `apt-1.16.0`
+### 2019/09/24
