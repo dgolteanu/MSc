@@ -14,3 +14,4 @@ This is a proof of principle as we wait for the 800 mice to be genotyped, and wi
 Imported `MDGA_Annotation.csv` as `annotated_probes` variable in R
 #### These steps are for Affymetrix power tools `apt-1.16.0`
 ### 2019/09/24
+Removed all rows except genomic position from the  `probe_position` dataframe using `probe_position <- annotated_probes[-4:-17,]`, `probe_position <- probe_position[rowSums(is.na(probe_position)) != ncol(probe_position),]` and `probes_position <- probe_position[rowSums(is.na(probe_position)) == 0,]`
