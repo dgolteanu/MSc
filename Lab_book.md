@@ -15,3 +15,14 @@ Imported `MDGA_Annotation.csv` as `annotated_probes` variable in R
 #### These steps are for Affymetrix power tools `apt-1.16.0`
 ### 2019/09/24
 Removed all rows except genomic position from the  `probe_position` dataframe using `probe_position <- annotated_probes[-4:-17,]`, `probe_position <- probe_position[rowSums(is.na(probe_position)) != ncol(probe_position),]` and `probes_position <- probe_position[rowSums(is.na(probe_position)) == 0,]`
+### 2019/10/01
+Re-focus on looking for Human 6.0 SNP array data and creating a pipeline for data cleanup.
+
+Looked into European Bioinformatics Institute (EBI) ArrayExpress database(db) which encompases NCBI's GEO database.
+
+Searched the ArrayExpress db using the following: **Filtered by organism Homo sapiens, experiment type "dna assay", experiment type "array assay"**
+
+The tab-delimited file from the search page`ArrayExpress-Experiments-191001-153147.txt` was imported into R `ebi_human_array<-read.table('./ArrayExpress-Experiments-191001-153147.txt', header=T, sep= '\t', row.names="Accession")`
+
+The dataframe was subset by "Type" column for any sample containing the word "genotyping" or "SNP" to capture all possible genotyping microarray datasets within the db
+`geno<- (grepl('genotyping', Type, ignore.case = T)|grepl('SNP', Type, ignore.case = T))`. 295 projects were identified, of these
