@@ -1,5 +1,8 @@
 #!/usr/bin/Rscript
 library(affxparser)
+# create code to ask user to input location of files, store in variable & pass var to setwd function
+# ask user for any patterns to be removed from filename to match feature labels
+setwd('/home/dgolteanu/Documents/Coding/MSc/Data/E-MTAB-1051/processed/')
 files<- list.files(path='./', pattern='_SNP.chp')
 colname<-vector()
 genotyping<-vector()
