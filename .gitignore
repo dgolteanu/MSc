@@ -1,4 +1,5 @@
 */.*
+!.gitattributes
 MDGA/
 .RData
 human6.0_arrayexpress_processed_count.xml
