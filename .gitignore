@@ -1,8 +1,3 @@
 */.*
+*/Data*
 !.gitattributes
-MDGA/
-.RData
-human6.0_arrayexpress_processed_count.xml
-Gurjit genotyping
-Data/E-MTAB-1051/raw/
-Data/E-MTAB-1051/processed/
