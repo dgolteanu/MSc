@@ -1,4 +1,4 @@
-cd*/.*
+.*
 *Data*
 !.gitattributes
 *.pdf
