@@ -3,19 +3,19 @@ import csv
 from tqdm import tqdm
 import re
 
-directory = '/Users/dolteanu/local_documents/Coding/MSc/FinalProject/Data/letter calls'
+directory = '/Users/dolteanu/local_documents/Coding/MSc/Data/letter calls'
 files = sorted(os.listdir(directory))
-outfile = open("/Users/dolteanu/local_documents/Coding/MSc/FinalProject/Output/calls.csv", 'w')
+outfile = open("/Users/dolteanu/local_documents/Coding/MSc/Output", 'w')
 writer = csv.writer(outfile, delimiter=',')
 
 writer.writerow([''] + files)
 line_data = []
 for filename in tqdm(os.listdir(directory)):
     if filename != '.*':
-        file = open(directory+'/'+filename,'r')
+        file = open(directory+'/'+filename, 'r')
         lines = tqdm(file.readlines())
         print(filename)
-        for x,line in enumerate(lines):
+        for x, line in enumerate(lines):
             if x != 0:
                 line_strip = line.strip('\n').split(' ')
                 line_elements = line_strip[0].split('\t')
@@ -26,17 +26,14 @@ for filename in tqdm(os.listdir(directory)):
                 line_data[x-1].append(first_calls)
 
 writer.writerows(line_data)
-    # else:
-    #     lines = lines[1:]
-    #     for line in lines:
-    #         line_elements = line.strip('\n').split('\t')
-    #         calls = line_elements[1]
-    #         rows = zip(calls)
-    #         writer.writerows(rows)
+# else:
+#     lines = lines[1:]
+#     for line in lines:
+#         line_elements = line.strip('\n').split('\t')
+#         calls = line_elements[1]
+#         rows = zip(calls)
+#         writer.writerows(rows)
 outfile.close()
-
-
-
 
 
 # for filename in os.listdir[1:]:
