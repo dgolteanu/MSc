@@ -1,0 +1,26 @@
+Comment[ArrayExpressAccession]	E-GEOD-27105
+MAGE-TAB Version	1.1												
+Public Release Date	2013-12-01
+Investigation Title	Genomic Signatures of Metastasis in Prostate Cancer												
+Comment[Submitted Name]	Genomic Signatures of Metastasis in Prostate Cancer
+Experiment Description	Background:   Metastases result in 90% of all cancer deaths.  Prostate cancer primary tumors evolve to become metastatic through selective alterations, such as amplification and deletion of genomic DNA.    Methods:   Genomic DNA copy number alterations were used to develop a gene signature that measured the metastatic potential of a prostate cancer primary tumor.  We studied the genomic landscape of these alterations in 294 primary tumors and 49 metastases from 5 independent cohorts.  Receiver-operating characteristic cross-validation and Kaplan-Meier survival analysis were performed to assess the accuracy of our predictive model.  The signature was measured in a panel of 337 cancer cell lines from 29 different tissue origins.  Results:   We identified 399 copy number alterations around genes that were over-represented in metastases and predictive of whether a primary tumor will metastasize.  Cross-validation analysis resulted in a predictive accuracy of 80.5% and log rank analysis of the metastatic potential score was significantly related to the endpoint of metastasis-free survival (p=0.014).  The metastatic signature was observed in cell lines originating from lung, breast, colon, thyroid, rectum, pancreas and melanoma. The signature was comprised in part of genes of known or putative metastatic role — 8 solute carrier genes, 6 Cadherin family genes and 5 potassium channel genes — that function in metabolism, cell-to-cell adhesion and escape from anoikis/apoptosis.    Conclusions:   Somatic Copy number alterations are an independent predictor of metastatic potential.  The data indicate a prognostic utility for using primary tumor genomics to assist in clinical decision making and developing therapeutics for prostate and likely other cancers. genomic DNA from 29 prostate cancer tumors with matched normals run on Affymetrix 6.0 SNP arrays.												
+Term Source Name	ArrayExpress	EFO
+Term Source File	http://www.ebi.ac.uk/arrayexpress/	http://www.ebi.ac.uk/efo/efo.owl											
+Person Last Name	Pearlman	Pearlman	Campbell	Brooks	Genshaft	Shajahan	Ittmann	Bova	Melamed	Holcomb	Schneider	Shao	Ostrer
+Person First Name	Alex	Alexander	Christopher	Eric	Alex	Shahin	Michael	G	Jonathan	Ilona	Robert	Yongzhao	Harry
+Person Mid Initials								S					
+Person Email	alexander.pearlman@einstein.yu.edu												
+Person Affiliation	Albert Einstein College of Medicine												
+Person Address	Pediatrics and Genetics, Albert Einstein College of Medicine, 1300 Morris Park Avenue, Bronx, NY, USA												
+Person Roles	submitter												
+Protocol Name	P-GSE27105-1	P-GSE27105-4	P-GSE27105-5	P-GSE27105-2	P-GSE27105-3	P-GSE27105-6							
+Protocol Description	Processed using Affy Power Tools (Birdseed v2 algorithm). ID_REF = PROBE SET NAME VALUE = CALL CONFIDENCE =  FORCED CALL =  SIGNAL A =  SIGNAL B = 	Affymetrix standard protocol.	Affymetrix standard protocol.	Fresh frozen tissue from radical prostatectomy.	Gentra genomic DNA isolation kit.	Affymetrix standard protocol.							
+Protocol Type	normalization data transformation protocol	labelling protocol	hybridization protocol	sample treatment protocol	nucleic acid extraction protocol	array scanning protocol							
+Experimental Factor Name	TUMOR_STAGE	GLEASON_PRIMARY	RACE	AGE_AT_PROSTATECTOMY_YEARS	GLEASON_SECONDARY								
+Experimental Factor Type	tumor_stage	gleason_primary	race	age_at_prostatectomy_years	gleason_secondary								
+Comment[SecondaryAccession]	GSE27105												
+Comment[GEOReleaseDate]	2013-12-01												
+Comment[ArrayExpressSubmissionDate]	2011-02-07												
+Comment[GEOLastUpdateDate]	2013-12-01												
+Comment[AEExperimentType]	comparative genomic hybridization by array												
+SDRF File	E-GEOD-27105.sdrf.txt
