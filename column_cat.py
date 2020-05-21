@@ -5,7 +5,7 @@ import re
 
 directory = '/Users/dolteanu/local_documents/Coding/MSc/Data/letter calls'
 files = sorted(os.listdir(directory))
-outfile = open("/Users/dolteanu/local_documents/Coding/MSc/Output", 'w')
+outfile = open("/Users/dolteanu/local_documents/Coding/MSc/Output/calls.csv", 'w')
 writer = csv.writer(outfile, delimiter=',')
 
 writer.writerow([''] + files)
