@@ -3,3 +3,4 @@
 !.gitattributes
 *.pdf
 Example data/lanl_whole/**
+*.csv
