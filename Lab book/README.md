@@ -1,7 +1,7 @@
 # Daniel Olteanu lab book in the Hill lab at the University of Western Ontario
 ## This lab book is intended to be a complete technical track record of programs run and/or created to generate new results/data. It is meant to be completely reproducible
 ## 2019/09/23
-MSc git repository was created on Daniel's local machine and
+MSc git repository was created on Daniel's local machine (lenovo thinkpad x1 yoga) and
 
 I have a modified genotyping call file ` NMRI_calls.csv, CD1_calls.csv` for CD-1 and NMRI mice strains provided by Hailie Pavanel. Nick Boehler & Hailie Pavanel provided genome position annotation files ` MDGA_Annotation.csv,MDGA_functional_anno.csv ` respectively, created by the Hill lab for the Affymetrix MDGA microarray probes used in our lab. Kathleen Hill provided a file `MLDSP_labels.csv` containing clustering information for 800 mice within the Jackson laboratory database `url` for use as feature labels in training the Machine learning (ML) alogorithm of MLDSP.
 
@@ -29,18 +29,30 @@ The dataframe was subset by "Type" column for any sample containing the word "ge
 
 The final list was exported as csv `ArrayExpress_human_arrays_list.csv`
 
+## 2019/11/18
+Local machine was changed to Macbook Pro (16-inch 2019) model A2141 Part Number: MVVJ2LL/A running MacOS catalina 10.15.1
+## 2021/02/19
+MacOS updated to Big Sur 11.2.1
+## 2021/04/27
+MacOS updated to 11.3
+## 2021/05/26 
+MacOS updated to 11.4
 ## 2021/06/16
 Downloaded all available GISAID data from website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Download packages" header> select "FASTA" and "metadata" download buttons. After unziping the tar.xz we get 2 folders: sequences_fasta_2021_06_16 and metadata_2021_06_16. Also downloaded on the same day all protein sequences https://www.epicov.org/epi3/frontend > "EpiCoV" tab >"Downloads" tab > pop up > "Alignment and proteins" header > allprotXXXX file where on this date XXXX = 0322
 
 NOT USED:
 Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scroll to bottom of page select "DOWNLOAD DATA" button at the very bottom center see ![Nextstrain website download example]('/Users/dolteanu/local_documents/Coding/MSc_github/Lab book/Nextstrain website data download example 2021:06:16.png')
-
+## 2021/07/25
+MacOS updated to 11.5
 ## 2021/08/23
 Profiling of MATLAB MLDSP using the BacteriaTest dataset
+## 2021/08/29
+MacOS updated to 11.5.2
 ## 2021/10/06
 
 Redownloaded all available gisaid data from website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Download packages" header> select "FASTA" and "metadata" download buttons. After unziping the tar.xz we get 2 folders: sequences_fasta_2021_10_06 and metadata_2021_10_06
-
+## 2021/10/12
+MacOS updated to 11.6
 ## 2022/01/11
 Downloaded data used to build tree on Nextstrain's website from the GISAID website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Genomic epidemiology" header > 'nextregions' button > pop up "Region-specific Auspice source files" > "Global" download button. This gives "hcov_global_2022-01-09_23-30" containing the fasta of sequences used on the nextstrain website https://nextstrain.org/ncov/gisaid/global as seen on January 9 2022
 
