@@ -35,6 +35,8 @@ Downloaded all available GISAID data from website portal https://www.epicov.org/
 NOT USED:
 Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scroll to bottom of page select "DOWNLOAD DATA" button at the very bottom center see ![Nextstrain website download example]('/Users/dolteanu/local_documents/Coding/MSc_github/Lab book/Nextstrain website data download example 2021:06:16.png')
 
+## 2021/08/23
+Profiling of MATLAB MLDSP using the BacteriaTest dataset
 ## 2021/10/06
 
 Redownloaded all available gisaid data from website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Download packages" header> select "FASTA" and "metadata" download buttons. After unziping the tar.xz we get 2 folders: sequences_fasta_2021_10_06 and metadata_2021_10_06
@@ -49,10 +51,10 @@ Will have to redownload the nextstrain website data & raw data used to build it 
 Running Mantel test of Dengue dataset vs covid19 gisaid data, may not be appropriate for different datasets; available packages require symmetric matrix of same size (assumed to come from same dataset), which our use case does not satisfy
 
 ## 2022/04/11
-MATLAB mldsp was previously profiled with cgr k=6, on my mac (macos 11.6) (MATLAB R2019a) with the BacteriaTest dataset, attempting to reproduce profiling with python version (pre & post DP)
-MATLAB profiling sucessfully reproduced.
+MATLAB mldsp was previously profiled on [2021/08/23](#20210823) on my mac at the time running macos 11.5 (MATLAB R2019a). The BacteriaTest dataset was used with the cgr numerical method at k=6; the builtin profiler was run using the `Run & Time` button on the MATLAB desktop, as described in the [MATLAB documentation](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html#mw_e3eebe5c-984d-42ad-8b1f-6269890525fc). All other programs were closed during the profiling run. Profiling results can be found in [Profiling/MATLAB/Timing.pdf](../Profiling/MATLAB/Timing.pdf), the approximate run time was **~590 s**.  
+Attempting to reproduce profiling with python version (pre & post DP)
 ## 2022/04/13
-Mac os inadvertenently auto updated following an overnight crash from 11.6 to `11.6.5 (20G527)`. 
+Mac os auto updated following an overnight crash from 11.6 to `11.6.5 (20G527)`. 
 VS Code updates were turned off, going forward: `Version: 1.66.2
 Commit: dfd34e8260c270da74b5c2d86d61aee4b6d56977
 Date: 2022-04-11T07:49:20.994Z
@@ -65,7 +67,7 @@ OS: Darwin x64 20.6.0`
 ## 2022/05/12
 Profiling of run time for MLDSP pre and post sharcnet dedicated programming (DP) refactoring. The bulk of refactoring was done by Sergio Hleap in collaboration with myself. For both versions profiling was performed by myself on my local mac computer using VS code and it's integrated terminal; the code profiled is from https://github.com/HillLab/MLDSP repository.
 ### Pre sharcnet DP profiling
-For preDP refactor of MLDSP python, **the code used was from commit 0f8f3ed** ; only code modifications was changing k value to 6. It was run in a new python 3.9.0 virtual environment, installed modules are listed in preDP_cleanvenv_requirements.txt. The following code was added/uncommented to the 1st line of main.py 
+For preDP refactor of MLDSP python, **the code used was from commit 0f8f3ed** ; only code modifications was changing k value to 6. Results are found in `Profiling/First attempt/Bacteria_preDP_cleanvenv` with [Bacteria_preDP_cleanvenv_profile.prof](../Profiling/First%20attempt/Bacteria_preDP_cleanvenv/Bacteria_preDP_cleanvenv_profile.prof) file being the cProfile output. Profiling was run in a new python 3.9.0 virtual environment, installed modules are listed in [preDP_cleanvenv_requirements.txt](../Profiling/First%20attempt/Bacteria_preDP_cleanvenv/preDP_cleanvenv_requirements.txt). The following code was added/uncommented to the 1st line of main.py 
 ```
 import cProfile
 profiler = cProfile.Profile()
@@ -76,6 +78,8 @@ Followed at the end of the main.py script with
 profiler.disable()
 profiler.dump_stats(f'{Run_name}_profile.prof')
 ```
+Profiling results can be viewed by importing the desired cProfile output file into the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook. The aproximate total run time was **~900 s**.
+
 cProfile could not be run from the command line as a module due to errors in pickling within the parallel code (pool).
 ```
 Traceback (most recent call last):
@@ -107,14 +111,13 @@ Traceback (most recent call last):
     cls(buf, protocol).dump(obj)
 _pickle.PicklingError: Can't pickle <function compute_cgr at 0x108392820>: attribute lookup compute_cgr on __main__ failed
 ```
-
-Results for preDP profiling are stored in `Bacteria_preDP_cleanvenv_profile.prof` and can be viewed with the `profiling.ipynb`.
-
 ### PostDP profiling
-For postDP refactor profiling, **the code used was from commit 99beda1**  The following command was used for post DP profiling: `python -m cProfile -o ./postDP_profile.prof -m MLDSP_core.main path/to/BacteriaTest/fastas path/to/metadata.csv -k 6 -r BacteriaTest`. It too was also run in a new python 3.9.0 virtual environment, installed modules are listed in postDP_cleanvenv_requirements.txt.
+For postDP refactor profiling, **the code used was from commit 99beda1**. Results are found in `Profiling/BacteriaTest_postDP_cleanvenv` with [postDP_profile.prof](../Profiling/First%20attempt/BacteriaTest_postDP_cleanvenv/postDP_profile.prof) file being the cProfile output. Profiling was run in a new and unique python 3.9.0 virtual environment; installed modules are listed in [postDP_cleanvenv_requirements.txt](../Profiling/First%20attempt/BacteriaTest_postDP_cleanvenv/postDP_cleanvenv_requirements.txt). The following command was used for post DP profiling: `python -m cProfile -o ./postDP_profile.prof -m MLDSP_core.main path/to/BacteriaTest/fastas path/to/metadata.csv -k 6 -r BacteriaTest`. The aproximate total runtime was **~1800 s** or 2X the pre sharcnet DP runtime.
+
 ## 2022/05/13
 VS Code extensions were found to be auto updating and turned off, going forward unless otherwise stated versions will be: 
-```alefragnani.rtf@2.5.0
+```
+alefragnani.rtf@2.5.0
 codezombiech.gitignore@0.7.0
 donjayamanne.python-environment-manager@1.0.4
 donjayamanne.python-extension-pack@1.7.0
@@ -140,4 +143,27 @@ njpwerner.autodocstring@0.6.1
 samuelcolvin.jinjahtml@0.17.0
 VisualStudioExptTeam.vscodeintellicode@1.2.21
 wholroyd.jinja@0.0.8
-yzhang.markdown-all-in-one@3.4.3```
+yzhang.markdown-all-in-one@3.4.3
+```
+
+## 2022/05/16
+Concerns were raised about comparing profiling results between in script vs command-line execution of cProfile and various background programs along with VS Code confounding profiling results. Profiling was re-run for both pre & post sharcnet DP code respectively using the same commits, python virtual environments, dataset and CGR kmer value as decribed in sub-section [2022/05/12](#20220512). The differences being that instead of VS Code terminal used, the default MacOS terminal was used to launch the respective pre or post DP version of the program after all other programs were closed and the local machine restarted. The terminal was the only program opened from the MacOS GUI after restart to launch each profiling run and delete any `__pycache__` present in the virtual environments. This time for both pre and post DP the following code was appended to the start of the respective `main.py` scripts:
+```
+import cProfile
+profiler = cProfile.Profile()
+profiler.enable()
+```
+and the following at the end of the respective `main.py`
+```
+profiler.disable()
+profiler.dump_stats(f'{Run_name}_profile.prof')
+```
+This was done to control for variances in running profiler inside the script vs. as a command-line module (previously done for post DP profiling). Another possible confounding error was having the post script profiler functions indented under `if __name__ == '__main__':` during the first attempt of pre DP code profiling.
+###  Pre DP final results
+MLDSP output from the profiling run can be found in `Profiling/preDP/Bacteria_fullscript` with the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript_profile.prof). Run time was **~600 s** and full results can be viewed from the `.prof` using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook.
+### Post DP final results
+MLDSP output from the profiling run can be found in `Profiling/postDP/Bacteria_fullscript` with the cProfile output file [Bacteria_post_fullscript_profile.prof](../Profiling/postDP/Bacteria_post_fullscript_profile.prof). Run time was **~1900 s**. 
+
+### 2022/05/19
+
+
