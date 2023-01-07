@@ -1,0 +1,6 @@
+Run_name Bacteria_preDP_cleanvenv 
+Method: cgr 6 
+Mean seq length: 70992.0 
+Cluster sizes:Counter({'Proteobacteria': 3144, 'Firmicutes': 1129, 'Spirochaetes': 437})
+
+10X cross validation classifier accuracies {'LinearDiscriminant': 0.9906581740976647, 'LinearSVM': 0.9927813163481953, 'QuadSVM': 0.9042462845010617, 'KNN': 0.962208067940552}

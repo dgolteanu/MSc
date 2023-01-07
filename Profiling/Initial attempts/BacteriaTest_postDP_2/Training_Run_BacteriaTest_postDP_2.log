@@ -1,0 +1,15 @@
+Run_name: BacteriaTest_postDP_2
+Method: Chaos Game Representation (CGR)
+kmer: 7
+Median seq length: 70992.0
+Dataset size: 4710
+Class sizes:Counter({'Proteobacteria': 3144, 'Firmicutes': 1129, 'Spirochaetes': 437})
+CGR Spirochaetes: cgr_k=7_NZ_CP014325.1.npy
+CGR Proteobacteria: cgr_k=7_NZ_CP016533.1.npy
+CGR Firmicutes: cgr_k=7_NZ_AP014866.1.npy
+
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 0.9286624203821656
+	LinearSVM: 0.9927813163481953
+	QuadSVM: 0.892144373673036
+	KNN: 0.9632696390658175
