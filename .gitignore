@@ -11,3 +11,5 @@ Summer school 2021/**
 *.fasta
 *.fai
 *.npy
+**/*_partialcorr.pckl
+**/Trained_models.pkl
