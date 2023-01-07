@@ -1,8 +1,13 @@
 .*
-*Data*
 !.gitattributes
+__pycache__/
+*Data*
 *.pdf
-Example data/lanl_whole/**
-*.csv
+Example data/**
 Array Express project/**
 Summer school 2021/**
+*.xml
+*.zip
+*.fasta
+*.fai
+*.npy
