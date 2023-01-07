@@ -3,6 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
+
 # Logging into the MLDSP cloud
 ## 1. Make a compute canada account if you dont already have one 
 Compute canada account: https://ccdb.computecanada.ca/security/login please use your institutional email, under **Position** select only from the **Sponsored Users** options your appropriate status and submit the application.
@@ -46,9 +47,9 @@ Request users give you their IP address by using: http://ipv4.icanhazip.com, add
 
 To set up user's account run these commands replacing 'vivek' with their username. The ubuntu password set for all users is 'khill22', they shouldn't have to use this. Their login password will be whatever they set for their ssh keys
 ```
-sudo mkdir /home/vivek/.ssh/
-sudo chmod 0700 /home/vivek/.ssh/
-sudo sh -c "echo 'copy user's PUBLIC key' > /home/vivek/.ssh/authorized_keys"
+sudo mkdir -m 0700 /home/vivek/.ssh/
+<!-- sudo chmod 0700 /home/vivek/.ssh/ -->
+sudo sh -c "echo 'copy user's **PUBLIC** key' > /home/vivek/.ssh/authorized_keys"
 sudo chown -R vivek:vivek /home/vivek/.ssh/ 
 ```
 ### Instructions for spinning up a VM
