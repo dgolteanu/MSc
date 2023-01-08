@@ -266,5 +266,10 @@ MLDSP CLI now ouputs MoDMap.json (same as what is passed to web server) which ca
 
 ### 2023/01/04
 MLDSP github: 'daniel' branch merged into 'dev' branch and 'daniel' branch deleted but all commit numbers remain available in dev branch.
+Longest (max) and shortest (min) sequence length outputs added and class size fixed to show actual class sizes of dataset run instead of class sizes of samples listed in metadata file.
+
+### 2023/01/05
+Classification report (precision, F1, macro avg accuracy) seen in output now also saved in sklearn standard dict format `{run_name}_classification_report.pkl`. Confusion matrices also saved for each run `{run_name}_confusion)matrices.pkl` instead of just saving the image.  
+Attempted deduplication on Nextstrain website data from 2022/01/11 using command `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`
 
 
