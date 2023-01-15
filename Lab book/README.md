@@ -57,7 +57,7 @@ Redownloaded all available gisaid data from website portal https://www.epicov.or
 MacOS updated to 11.6
 ## 2022/01/11
 ## Nextstrain dataset download
-Downloaded data used to build tree on Nextstrain's website from the GISAID website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Genomic epidemiology" header > 'nextregions' button > pop up "Region-specific Auspice source files" > "Global" download button. This gives "hcov_global_2022-01-09_23-30" containing the fasta of sequences used on the nextstrain website https://nextstrain.org/ncov/gisaid/global as seen on January 9 2022
+Downloaded data used to build tree on Nextstrain's website from the GISAID website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Genomic epidemiology" header > 'nextregions' button > pop up "Region-specific Auspice source files" > "Global" download button. This gives "hcov_global_2022-01-09_23-30" containing the fasta of sequences used on the nextstrain website https://nextstrain.org/ncov/gisaid/global as seen on January 9 2022. 3215 samples
 
 ## 2022/02/27
 Will have to redownload the nextstrain website data & raw data used to build it from gisaid on the same day (weekday)
@@ -193,12 +193,12 @@ MLDSP output from this profiling run can be found in `Profiling/Initial attempts
 ## 2022/05/25
 ### Ontario covid (gisaid classes) MLDSP run
 ### Comment: Dataset renamed to 'Ontario_gisaid_1' but subsequently deleted as accuracy percentage was misformatted
-MLDSP CLI was run on the cloud machine Ubuntu 20.04 virtual machine with 40 cores, 160 Gb RAM using the Ontario covid data provided by David Chen using the gisaid clade class labels. Clade L with 7 samples was removed from both metadata `gisaid_filtered<10.csv` and fasta file `ontario_filtered<10.fasta`. Default numerical method (CGR) and k value (7) were used: (note CLI arguments not specified as these are the defaults for this version of MLDSP CLI ). Samples "Canada/Hu-1/2019" and "Microbiologist-in-Chief" were removed from the metadata as they weren't present in the fasta. Command used to run MLDSP CLI: `MLDSP ./daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ ./daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_covid`  
+MLDSP CLI was run on the cloud machine Ubuntu 20.04 virtual machine with 40 cores, 160 Gb RAM using the Ontario covid data provided by David Chen using the gisaid clade class labels. Clade L with 7 samples was removed from both original metadata and fasta file giving output files: `gisaid_filtered<10.csv` & `ontario_filtered<10.fasta`. Default numerical method (CGR) and k value (7) were used: (note CLI arguments not specified as these are the defaults for this version of MLDSP CLI ). Samples "Canada/Hu-1/2019" and "Microbiologist-in-Chief" were removed from the metadata as they weren't present in the fasta. Command used to run MLDSP CLI: `MLDSP ./daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ ./daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_covid`  
 
 ## 2022/05/30
 ### Ontario covid (epochs classes) MLDSP run **Ontario_epochs**
 MLDSP CLI was run on the cloud using the same Ontrio covid dataset with identical parameters except different metadata of epochs as class labels: `MLDSP ./daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ ./daniel_data/Ontario_covid/epoch_metadata.csv -r Ontario_epochs`. Not deduplicated data, may want to re-run with deduplicated in the future.
-### Comment: INCORRECT DEDUPLICATION, rerun on 06/25
+### Comment: INCORRECT DEDUPLICATION, rerun on 06/25, concatenated.fasta remains unchanged original unfiltered fasta
 Performed sequence deduplication of Ontario covid dataset using Seqkit 2.2.0 with the following command: `seqkit rmdup -P -i -s -D duplicates.txt concatenated.fasta ` on my local computer, duplicates saved in `duplicates.txt`. **Deduplicated datasets only used if explicitly mentioned, otherwise non-deduplicated**  
 
 ### 2022/06/07
@@ -237,7 +237,10 @@ MLDSP repo updated to **commit 3172c7d** encompassing metadata changes from 06/2
 ### 2022/07/27
 Re-run MLDSP CLI **daniel_branch 3172c7d** on the cloud using `ontario_filtered<10.fasta` data file, this is essentially a rerun of `Ontario_gisaid_2` but using balanced accuracy score to make appropriate comaprison between deduplicated (Ontario_gisaid_3) and unduplicated runs of MLDSP (here named **Ontario_gisaid_4**): `MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_4`.
 
-Ran MLDSP CLI **daniel_branch 3172c7d** on local with Nextstrain dataset using both Gisaid clades **Nextstrain_gisaid<20** and Nextstrain clades **Nextstrain<20**. In both cases datasets were cleaned to remove classes with fewer than 20 samples (so each fold in 10X cross validation has at least 2 samples in worst case). Re-run below with imporved output formatting but results remain the same, Class size 'incorrect' showing removed classes present in metadata but not run
+## Nextstrain website data
+Ran MLDSP CLI **daniel_branch 3172c7d** on local with Nextstrain dataset using both Gisaid clades **Nextstrain_gisaid<20** and Nextstrain clades **Nextstrain<20**. In both cases datasets were cleaned to remove classes with fewer than 20 samples (so each fold in 10X cross validation has at least 2 samples in worst case): `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta`
+
+N.B. Re-run below with imporved output formatting but results remain the same, Class size here 'incorrect' showing removed classes present in metadata but not actually run
 ```
 10X cross validation classifier accuracies:
 	LinearDiscriminant: 0.8360432725435075
@@ -270,6 +273,21 @@ Longest (max) and shortest (min) sequence length outputs added and class size fi
 
 ### 2023/01/05
 Classification report (precision, F1, macro avg accuracy) seen in output now also saved in sklearn standard dict format `{run_name}_classification_report.pkl`. Confusion matrices also saved for each run `{run_name}_confusion)matrices.pkl` instead of just saving the image.  
-Attempted deduplication on Nextstrain website data from 2022/01/11 using command `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`
+Profiling coded added to MLDSP github, uncommented as needed, all profiling results going forward are from this method.  
 
+Attempted deduplication on Nextstrain website data from 2022/01/11 on local machine with Nextstrain clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`
+
+### 2023/01/08
+Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_5** this is a re-run of `Ontario_gisaid_3` thus deduplicated with balanced accuracy score. No algorithmic change, just using better figure outputs.
+
+### 2023/01/11
+Run MLDSP CLI `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clades' &` Both using unduplicated datasets but their respective cleaned data files only containing the set of samples from clades with greater than 20 samples per clade:  `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta`
+
+### 2023/01/13
+Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_unduplicated**  
+
+### 2023/01/15
+Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_6** this is a re-run of `Ontario_gisaid_4` (unduplicated). No algorithmic change, just using better figure outputs.  
+
+Attempted deduplication on Nextstrain website data from 2022/01/11 on local machine with gisaid clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_gisaid<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_gisaid<20.fasta' -D gisaid_duplicated.txt` the output was `28 duplicated records removed`
 
