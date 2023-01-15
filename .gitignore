@@ -1,7 +1,6 @@
 .*
 !.gitattributes
 __pycache__/
-*Data*
 Example data/**
 Array Express project/**
 Summer school 2021/**

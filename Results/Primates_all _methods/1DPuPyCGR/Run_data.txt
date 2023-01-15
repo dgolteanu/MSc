@@ -1,0 +1,11 @@
+Run_name: 1DPuPyCGR
+Method: <function oneDPuPyCGR at 0x12e0c05e0>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 9.933333333333334
+	LinearSVM: 9.461904761904762
+	QuadSVM: 8.91904761904762
+	KNN: 9.595238095238095

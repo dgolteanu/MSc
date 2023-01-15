@@ -1,0 +1,11 @@
+Run_name: AT_CG
+Method: <function num_mapping_AT_CG at 0x12db37820>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 6.690476190476191
+	LinearSVM: 9.933333333333334
+	QuadSVM: 9.733333333333334
+	KNN: 10.0

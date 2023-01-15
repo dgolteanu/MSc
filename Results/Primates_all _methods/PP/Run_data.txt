@@ -1,0 +1,11 @@
+Run_name: PP
+Method: <function num_mapping_PP at 0x12d936dc0>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 7.204761904761904
+	LinearSVM: 10.0
+	QuadSVM: 9.933333333333334
+	KNN: 10.0

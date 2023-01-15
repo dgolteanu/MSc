@@ -1,0 +1,11 @@
+Run_name: Atomic
+Method: <function num_mapping_Atomic at 0x131219040>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 7.104761904761904
+	LinearSVM: 7.838095238095238
+	QuadSVM: 7.771428571428571
+	KNN: 9.8

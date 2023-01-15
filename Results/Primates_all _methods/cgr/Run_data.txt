@@ -1,0 +1,11 @@
+Run_name: cgr
+Method: <function compute_cgr at 0x12cfec670>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 9.190476190476192
+	LinearSVM: 9.866666666666667
+	QuadSVM: 8.985714285714286
+	KNN: 9.8

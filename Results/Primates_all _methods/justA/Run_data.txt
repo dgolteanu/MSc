@@ -1,0 +1,11 @@
+Run_name: justA
+Method: <function num_mapping_justA at 0x1235449d0>
+kmer: 5
+Median seq length: 16554.0
+Dataset size:148
+Class sizes:Counter({'Haplorrhini': 115, 'Strepsirrhini': 33})
+10X cross validation classifier accuracies:
+	LinearDiscriminant: 6.8761904761904775
+	LinearSVM: 10.0
+	QuadSVM: 9.933333333333334
+	KNN: 10.0
