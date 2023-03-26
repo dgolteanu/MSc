@@ -256,7 +256,7 @@ Re-ran post DP profiling on local machine with cProfile in-line as shown in the 
 Realized the reason for 2X discrepancy between pre and post Sharcnet Dedicated Programming (DP) is that the preDP profiling was done with MLDSP MoDMap computed using principle componenet analysis (PCA) method but the post DP profiling was done with MLDSP MoDMap computed using multi-dimensional scaling (MDS). This can be seen when comparing the outputs of the `profiling.ipynb` respectively. This hypothesis will be tested by running the postDP profiling one more time using the PCA method. 
 
 ### 2022/11/15
-## Actual final post sharcnet DP profiling results
+
 Ran post DP profiling again from same commit **59c47bf (dev branch)** but with MoDMap method set to PCA (full model still commented out)
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_3`. **BacteriaTest_no_testing_3** Total run time was ~770s which is faster than the preDP profiling ~830s. For an accurate comparison to MATLAB, we must wait for scikit learn pull request #
 
@@ -268,6 +268,7 @@ Cleaned MLDSP confusion matrix output to show whole numbers an intercluster dist
 MLDSP CLI now ouputs MoDMap.json (same as what is passed to web server) which can be viewed with plotly in python or in jupyter notebook.
 
 ### 2023/01/04
+**PR 14, filtered metadata.csv no longer required, will use all samples from fastas as long as they are present in metadata**. This will eventually allow for using a single metadata file as a database in GUI
 MLDSP github: 'daniel' branch merged into 'dev' branch and 'daniel' branch deleted but all commit numbers remain available in dev branch.
 Longest (max) and shortest (min) sequence length outputs added and class size fixed to show actual class sizes of dataset run instead of class sizes of samples listed in metadata file.
 
@@ -291,3 +292,27 @@ Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_6** this 
 
 Attempted deduplication on Nextstrain website data from 2022/01/11 on local machine with gisaid clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_gisaid<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_gisaid<20.fasta' -D gisaid_duplicated.txt` the output was `28 duplicated records removed`
 
+### 2023/02/14
+Fixed error causing data leakage in 10X cross validation leading to inflated accuracy scores & artificially high generalization potential: Distance matrix in training set was only being subset by rows (samples) while retaining all columns (features) including the ones used in the test fold. Now Distance matrix rows & columns are subset by training sample indices and test sample indices are used to select samples (rows) while columns are subset on training indices since feature vector length must be the same in train & test sets. Therefore, testing set columns are lost but this information is only the relationship between test set samples, not relative to training set & is not considered data leakeage.
+
+### 2023/03/20
+Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_7** this is a re-run of `Ontario_gisaid_6` (unduplicated) with fixed classification code from 2023/02/14: `nohup MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_7 &`
+
+### 2023/03/21
+Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_3** this is a re-run of `Ontario_epochs_unduplicated` (unduplicated) with fixed classification code from 2023/01/13: `nohup MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/epochs_metadata.csv -r Ontario_epochs_3 &`
+
+### 2023/03/25
+Re-ran MLDSP CLI on cloud with Nextstrain dataset both gisaid: `cleaned_gisaid<20.fasta` and nextstrain clade metadata: `cleaned_nextstrain<20.fasta` this is a re-run of datasets from *2022/01/11 with fixed cross validation. `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/gisaid_metadata.csv' -r 'Nextstrain_gisaid_2' &` **Nextstrain_gisaid_2**  
+
+`nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clade_2' &` **Nextstrain_clade_2**  
+
+## Actual final post sharcnet DP profiling results
+On local machine re-run Primates, Influenza, Dengue and Bacteria (as final post DP profiling) all with the fixed cross validation code commit `.  
+Post DP profiling (Bacteria dataset):  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4`  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/metadata.csv -r Dengue_2`  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/metadata.csv -r Influenza_2`  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/metadata.csv -r Primates_2`  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -r Bacteria_2`
+
+`deduplicated_gisaid<20.fasta` from 2023/01/15 moved to cloud VM.
