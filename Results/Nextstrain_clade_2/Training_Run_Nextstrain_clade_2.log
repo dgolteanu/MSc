@@ -1,0 +1,865 @@
+Run_name: Nextstrain_clade_2
+Method: Chaos Game Representation (CGR)
+kmer: 7
+Median seq length: 29782.0 Shortest sequence: 28627 Longest sequence: 31290
+Dataset size: 3111
+Class sizes:
+21J (Delta):1782, 20B:241, 20A:282, "20H (Beta:24, 21I (Delta):177, 20C:68, "20J (Gamma:62, "20I (Alpha:117, 21A (Delta):47, 19B:40, 19A:55, 21K (Omicron):216, 
+Classification results for LinearDiscriminant fold 1:
+Area Under the Receiver Operating Characteristic Curve: 1.0
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       1.00      1.00      1.00        28
+          20B       1.00      1.00      1.00        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      1.00      1.00         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       179
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           1.00       312
+    macro avg       1.00      1.00      1.00       312
+ weighted avg       1.00      1.00      1.00       312
+
+Classification results for LinearDiscriminant fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9870129870129869
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.96      0.98        28
+          20B       1.00      1.00      1.00        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       0.75      0.75      0.75         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       0.99      1.00      1.00       179
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.99       311
+    macro avg       0.98      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearDiscriminant fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9870129870129869
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.96      0.98        28
+          20B       1.00      1.00      1.00        25
+          20C       0.88      1.00      0.93         7
+  21A (Delta)       1.00      0.75      0.86         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       0.99      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.99       311
+    macro avg       0.99      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearDiscriminant fold 4:
+Area Under the Receiver Operating Characteristic Curve: 1.0
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       1.00      1.00      1.00        29
+          20B       1.00      1.00      1.00        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           1.00       311
+    macro avg       1.00      1.00      1.00       311
+ weighted avg       1.00      1.00      1.00       311
+
+Classification results for LinearDiscriminant fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9981060606060606
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         7
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       0.97      1.00      0.98        29
+          20B       1.00      0.96      0.98        24
+          20C       1.00      1.00      1.00         6
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           1.00       311
+    macro avg       1.00      1.00      1.00       311
+ weighted avg       1.00      1.00      1.00       311
+
+Classification results for LinearDiscriminant fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9833333333333334
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         7
+          19A       1.00      0.80      0.89         5
+          19B       1.00      1.00      1.00         4
+          20A       0.97      1.00      0.98        28
+          20B       0.96      1.00      0.98        24
+          20C       1.00      0.83      0.91         6
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.99       311
+    macro avg       0.99      0.97      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearDiscriminant fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9983766233766234
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         5
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.96      0.98        28
+          20B       1.00      1.00      1.00        24
+          20C       0.88      1.00      0.93         7
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        17
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           1.00       311
+    macro avg       0.99      1.00      0.99       311
+ weighted avg       1.00      1.00      1.00       311
+
+Classification results for LinearDiscriminant fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9888908142419378
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         5
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.93      0.96        28
+          20B       0.96      1.00      0.98        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      0.80      0.89         5
+  21I (Delta)       0.94      1.00      0.97        17
+  21J (Delta)       0.99      0.99      0.99       178
+21K (Omicron)       0.96      1.00      0.98        22
+
+     accuracy                           0.99       311
+    macro avg       0.99      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearDiscriminant fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9795454545454546
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       0.83      1.00      0.91         5
+          19B       1.00      0.75      0.86         4
+          20A       0.97      1.00      0.98        28
+          20B       1.00      1.00      1.00        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      0.80      0.89         5
+  21I (Delta)       1.00      1.00      1.00        17
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.99       311
+    macro avg       0.98      0.96      0.97       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearDiscriminant fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9983766233766234
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         5
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.96      0.98        28
+          20B       0.96      1.00      0.98        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           1.00       311
+    macro avg       1.00      1.00      1.00       311
+ weighted avg       1.00      1.00      1.00       311
+
+Classification results for LinearSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9930344727422649
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      0.83      0.91         6
+          19B       0.80      1.00      0.89         4
+          20A       0.97      1.00      0.98        28
+          20B       1.00      1.00      1.00        24
+          20C       1.00      0.86      0.92         7
+  21A (Delta)       1.00      1.00      1.00         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       179
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.99       312
+    macro avg       0.98      0.97      0.98       312
+ weighted avg       0.99      0.99      0.99       312
+
+Classification results for LinearSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9987863123213283
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         6
+          19B       1.00      1.00      1.00         4
+          20A       1.00      0.96      0.98        28
+          20B       0.96      1.00      0.98        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      0.75      0.86         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       0.99      1.00      1.00       179
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.99       311
+    macro avg       1.00      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.999812925170068
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      0.67      0.80         6
+          19B       0.67      1.00      0.80         4
+          20A       0.96      0.93      0.95        28
+          20B       0.96      1.00      0.98        25
+          20C       0.86      0.86      0.86         7
+  21A (Delta)       1.00      0.75      0.86         4
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       0.99      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.98       311
+    macro avg       0.95      0.93      0.94       311
+ weighted avg       0.98      0.98      0.98       311
+
+Classification results for LinearSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9999891152908394
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       0.86      1.00      0.92         6
+          19B       1.00      0.75      0.86         4
+          20A       0.97      1.00      0.98        29
+          20B       1.00      0.96      0.98        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.99       311
+    macro avg       0.99      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9921342356050429
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         7
+          19A       0.71      0.83      0.77         6
+          19B       0.67      0.50      0.57         4
+          20A       0.94      1.00      0.97        29
+          20B       1.00      0.92      0.96        24
+          20C       1.00      1.00      1.00         6
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.98       311
+    macro avg       0.94      0.94      0.94       311
+ weighted avg       0.98      0.98      0.98       311
+
+Classification results for LinearSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9885424739638223
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       1.00      1.00      1.00         7
+          19A       1.00      0.60      0.75         5
+          19B       0.50      1.00      0.67         4
+          20A       0.93      0.93      0.93        28
+          20B       0.92      0.96      0.94        24
+          20C       1.00      0.67      0.80         6
+  21A (Delta)       1.00      0.80      0.89         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.97       311
+    macro avg       0.95      0.91      0.91       311
+ weighted avg       0.98      0.97      0.97       311
+
+Classification results for LinearSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9934406167983025
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         5
+          19B       1.00      1.00      1.00         4
+          20A       0.96      0.96      0.96        28
+          20B       1.00      1.00      1.00        24
+          20C       0.86      0.86      0.86         7
+  21A (Delta)       1.00      1.00      1.00         5
+  21I (Delta)       1.00      1.00      1.00        17
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.99       311
+    macro avg       0.99      0.99      0.99       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for LinearSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9997834171547407
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       0.83      1.00      0.91         5
+          19B       0.80      1.00      0.89         4
+          20A       1.00      0.93      0.96        28
+          20B       1.00      1.00      1.00        24
+          20C       1.00      1.00      1.00         7
+  21A (Delta)       1.00      0.80      0.89         5
+  21I (Delta)       0.94      0.94      0.94        17
+  21J (Delta)       0.99      0.99      0.99       178
+21K (Omicron)       0.96      1.00      0.98        22
+
+     accuracy                           0.98       311
+    macro avg       0.96      0.97      0.96       311
+ weighted avg       0.99      0.98      0.98       311
+
+Classification results for LinearSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9987269907963187
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      0.67      0.80         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       0.83      1.00      0.91         5
+          19B       1.00      1.00      1.00         4
+          20A       0.93      0.96      0.95        28
+          20B       1.00      1.00      1.00        24
+          20C       0.83      0.71      0.77         7
+  21A (Delta)       0.83      1.00      0.91         5
+  21I (Delta)       1.00      0.94      0.97        17
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.98       311
+    macro avg       0.95      0.94      0.94       311
+ weighted avg       0.98      0.98      0.98       311
+
+Classification results for LinearSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9999226963512678
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      1.00      1.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       1.00      1.00      1.00         5
+          19B       1.00      1.00      1.00         4
+          20A       0.96      0.96      0.96        28
+          20B       0.96      1.00      0.98        24
+          20C       1.00      0.86      0.92         7
+  21A (Delta)       0.83      1.00      0.91         5
+  21I (Delta)       1.00      1.00      1.00        18
+  21J (Delta)       1.00      0.99      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.99       311
+    macro avg       0.98      0.98      0.98       311
+ weighted avg       0.99      0.99      0.99       311
+
+Classification results for QuadSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.8525882911403118
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.25      0.40        12
+  "20J (Gamma       1.00      0.33      0.50         6
+          19A       0.00      0.00      0.00         6
+          19B       0.00      0.00      0.00         4
+          20A       0.33      0.64      0.44        28
+          20B       1.00      0.08      0.15        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         4
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.78      1.00      0.88       179
+21K (Omicron)       1.00      0.95      0.98        22
+
+     accuracy                           0.72       312
+    macro avg       0.43      0.27      0.28       312
+ weighted avg       0.68      0.72      0.65       312
+
+Classification results for QuadSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.8514208926074615
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.42      0.59        12
+  "20J (Gamma       0.00      0.00      0.00         6
+          19A       0.00      0.00      0.00         6
+          19B       0.00      0.00      0.00         4
+          20A       0.31      0.71      0.43        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         4
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.82      1.00      0.90       179
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.72       311
+    macro avg       0.26      0.26      0.24       311
+ weighted avg       0.61      0.72      0.65       311
+
+Classification results for QuadSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.8519710120646451
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.08      0.15        12
+  "20J (Gamma       1.00      0.17      0.29         6
+          19A       0.00      0.00      0.00         6
+          19B       0.00      0.00      0.00         4
+          20A       0.27      0.61      0.38        28
+          20B       1.00      0.08      0.15        25
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         4
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.79      1.00      0.89       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.71       311
+    macro avg       0.42      0.24      0.24       311
+ weighted avg       0.69      0.71      0.63       311
+
+Classification results for QuadSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.8733662890708697
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.55      0.71        11
+  "20J (Gamma       1.00      0.17      0.29         6
+          19A       0.00      0.00      0.00         6
+          19B       0.00      0.00      0.00         4
+          20A       0.42      0.76      0.54        29
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.77      1.00      0.87       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.73       311
+    macro avg       0.35      0.29      0.28       311
+ weighted avg       0.60      0.73      0.65       311
+
+Classification results for QuadSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.880398570128682
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.55      0.71        11
+  "20J (Gamma       0.00      0.00      0.00         7
+          19A       0.00      0.00      0.00         6
+          19B       0.00      0.00      0.00         4
+          20A       0.41      0.90      0.57        29
+          20B       1.00      0.04      0.08        24
+          20C       0.00      0.00      0.00         6
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.81      1.00      0.90       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.75       311
+    macro avg       0.35      0.29      0.27       311
+ weighted avg       0.68      0.75      0.66       311
+
+Classification results for QuadSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.8977077871220643
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         3
+  "20I (Alpha       1.00      0.27      0.43        11
+  "20J (Gamma       1.00      0.14      0.25         7
+          19A       0.00      0.00      0.00         5
+          19B       0.00      0.00      0.00         4
+          20A       0.32      0.68      0.43        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         6
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.79      1.00      0.88       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.72       311
+    macro avg       0.34      0.26      0.25       311
+ weighted avg       0.61      0.72      0.64       311
+
+Classification results for QuadSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.8864053538365749
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         3
+  "20I (Alpha       1.00      0.25      0.40        12
+  "20J (Gamma       1.00      0.17      0.29         6
+          19A       0.00      0.00      0.00         5
+          19B       0.00      0.00      0.00         4
+          20A       0.38      0.71      0.49        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        17
+  21J (Delta)       0.77      1.00      0.87       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.72       311
+    macro avg       0.35      0.26      0.25       311
+ weighted avg       0.60      0.72      0.63       311
+
+Classification results for QuadSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.8536705633195282
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         3
+  "20I (Alpha       1.00      0.42      0.59        12
+  "20J (Gamma       1.00      0.17      0.29         6
+          19A       0.00      0.00      0.00         5
+          19B       0.00      0.00      0.00         4
+          20A       0.31      0.71      0.43        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        17
+  21J (Delta)       0.82      1.00      0.90       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.73       311
+    macro avg       0.34      0.27      0.27       311
+ weighted avg       0.62      0.73      0.65       311
+
+Classification results for QuadSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.874866166390515
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         3
+  "20I (Alpha       1.00      0.58      0.74        12
+  "20J (Gamma       1.00      0.50      0.67         6
+          19A       0.00      0.00      0.00         5
+          19B       0.00      0.00      0.00         4
+          20A       0.31      0.61      0.41        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        17
+  21J (Delta)       0.79      0.99      0.88       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.73       311
+    macro avg       0.34      0.31      0.31       311
+ weighted avg       0.61      0.73      0.65       311
+
+Classification results for QuadSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.8754644622510429
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.50      0.67        12
+  "20J (Gamma       1.00      0.17      0.29         6
+          19A       0.00      0.00      0.00         5
+          19B       0.00      0.00      0.00         4
+          20A       0.36      0.75      0.49        28
+          20B       0.00      0.00      0.00        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.00      0.00      0.00         5
+  21I (Delta)       0.00      0.00      0.00        18
+  21J (Delta)       0.79      0.99      0.88       178
+21K (Omicron)       1.00      0.95      0.98        22
+
+     accuracy                           0.73       311
+    macro avg       0.35      0.28      0.27       311
+ weighted avg       0.61      0.73      0.65       311
+
+Classification results for KNN fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.7980699855699855
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      0.50      0.67         6
+          19A       0.67      0.33      0.44         6
+          19B       0.57      1.00      0.73         4
+          20A       0.58      0.64      0.61        28
+          20B       0.60      0.62      0.61        24
+          20C       0.38      0.43      0.40         7
+  21A (Delta)       0.33      0.25      0.29         4
+  21I (Delta)       0.93      0.78      0.85        18
+  21J (Delta)       0.98      1.00      0.99       179
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.88       312
+    macro avg       0.67      0.63      0.63       312
+ weighted avg       0.87      0.88      0.87       312
+
+Classification results for KNN fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.8279387046845148
+               precision    recall  f1-score   support
+
+   "20H (Beta       1.00      0.50      0.67         2
+  "20I (Alpha       1.00      0.75      0.86        12
+  "20J (Gamma       1.00      1.00      1.00         6
+          19A       0.50      0.50      0.50         6
+          19B       0.33      0.50      0.40         4
+          20A       0.67      0.64      0.65        28
+          20B       0.63      0.71      0.67        24
+          20C       0.33      0.29      0.31         7
+  21A (Delta)       0.50      0.50      0.50         4
+  21I (Delta)       0.88      0.83      0.86        18
+  21J (Delta)       0.98      0.99      0.99       179
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.88       311
+    macro avg       0.74      0.68      0.70       311
+ weighted avg       0.89      0.88      0.88       311
+
+Classification results for KNN fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.8162770562770564
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.33      0.50      0.40         2
+  "20I (Alpha       1.00      0.83      0.91        12
+  "20J (Gamma       1.00      0.83      0.91         6
+          19A       0.33      0.17      0.22         6
+          19B       0.43      0.75      0.55         4
+          20A       0.68      0.61      0.64        28
+          20B       0.62      0.72      0.67        25
+          20C       0.62      0.71      0.67         7
+  21A (Delta)       0.00      0.00      0.00         4
+  21I (Delta)       0.83      0.83      0.83        18
+  21J (Delta)       0.98      1.00      0.99       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.88       311
+    macro avg       0.65      0.66      0.65       311
+ weighted avg       0.88      0.88      0.88       311
+
+Classification results for KNN fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.8349735035079863
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.33      0.50      0.40         2
+  "20I (Alpha       1.00      1.00      1.00        11
+  "20J (Gamma       0.67      0.67      0.67         6
+          19A       1.00      0.50      0.67         6
+          19B       0.60      0.75      0.67         4
+          20A       0.69      0.69      0.69        29
+          20B       0.76      0.79      0.78        24
+          20C       0.25      0.29      0.27         7
+  21A (Delta)       0.50      0.40      0.44         5
+  21I (Delta)       0.88      0.83      0.86        18
+  21J (Delta)       0.99      1.00      0.99       178
+21K (Omicron)       1.00      0.95      0.98        21
+
+     accuracy                           0.89       311
+    macro avg       0.72      0.70      0.70       311
+ weighted avg       0.90      0.89      0.89       311
+
+Classification results for KNN fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.7762131503118964
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       1.00      0.64      0.78        11
+  "20J (Gamma       1.00      1.00      1.00         7
+          19A       0.00      0.00      0.00         6
+          19B       0.50      0.25      0.33         4
+          20A       0.57      0.79      0.67        29
+          20B       0.54      0.54      0.54        24
+          20C       0.25      0.17      0.20         6
+  21A (Delta)       0.80      0.80      0.80         5
+  21I (Delta)       0.94      0.89      0.91        18
+  21J (Delta)       1.00      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        21
+
+     accuracy                           0.87       311
+    macro avg       0.63      0.59      0.60       311
+ weighted avg       0.87      0.87      0.87       311
+
+Classification results for KNN fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.8216974944247672
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         3
+  "20I (Alpha       1.00      0.91      0.95        11
+  "20J (Gamma       0.86      0.86      0.86         7
+          19A       0.50      0.40      0.44         5
+          19B       0.25      0.25      0.25         4
+          20A       0.61      0.50      0.55        28
+          20B       0.78      0.75      0.77        24
+          20C       0.25      0.67      0.36         6
+  21A (Delta)       1.00      0.80      0.89         5
+  21I (Delta)       0.94      0.94      0.94        18
+  21J (Delta)       0.99      1.00      1.00       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.89       311
+    macro avg       0.68      0.67      0.67       311
+ weighted avg       0.90      0.89      0.89       311
+
+Classification results for KNN fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.8445522999802576
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.40      0.67      0.50         3
+  "20I (Alpha       0.89      0.67      0.76        12
+  "20J (Gamma       1.00      0.83      0.91         6
+          19A       0.38      0.60      0.46         5
+          19B       1.00      0.75      0.86         4
+          20A       0.64      0.57      0.60        28
+          20B       0.74      0.71      0.72        24
+          20C       0.40      0.57      0.47         7
+  21A (Delta)       0.40      0.40      0.40         5
+  21I (Delta)       0.74      0.82      0.78        17
+  21J (Delta)       0.99      0.99      0.99       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.87       311
+    macro avg       0.71      0.72      0.70       311
+ weighted avg       0.89      0.87      0.88       311
+
+Classification results for KNN fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.8275514087146605
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.50      1.00      0.67         3
+  "20I (Alpha       1.00      1.00      1.00        12
+  "20J (Gamma       1.00      0.83      0.91         6
+          19A       0.75      0.60      0.67         5
+          19B       0.50      0.25      0.33         4
+          20A       0.60      0.64      0.62        28
+          20B       0.69      0.75      0.72        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.33      0.20      0.25         5
+  21I (Delta)       0.84      0.94      0.89        17
+  21J (Delta)       0.98      0.99      0.99       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.88       311
+    macro avg       0.68      0.68      0.67       311
+ weighted avg       0.87      0.88      0.88       311
+
+Classification results for KNN fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.830467835755344
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.50      0.67      0.57         3
+  "20I (Alpha       0.86      1.00      0.92        12
+  "20J (Gamma       0.83      0.83      0.83         6
+          19A       0.67      0.40      0.50         5
+          19B       0.75      0.75      0.75         4
+          20A       0.48      0.39      0.43        28
+          20B       0.59      0.67      0.63        24
+          20C       0.12      0.14      0.13         7
+  21A (Delta)       0.60      0.60      0.60         5
+  21I (Delta)       0.88      0.82      0.85        17
+  21J (Delta)       0.99      0.99      0.99       178
+21K (Omicron)       1.00      1.00      1.00        22
+
+     accuracy                           0.86       311
+    macro avg       0.69      0.69      0.68       311
+ weighted avg       0.86      0.86      0.86       311
+
+Classification results for KNN fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.7795147410188269
+               precision    recall  f1-score   support
+
+   "20H (Beta       0.00      0.00      0.00         2
+  "20I (Alpha       0.92      1.00      0.96        12
+  "20J (Gamma       1.00      0.67      0.80         6
+          19A       0.17      0.20      0.18         5
+          19B       0.33      0.50      0.40         4
+          20A       0.65      0.71      0.68        28
+          20B       0.52      0.54      0.53        24
+          20C       0.00      0.00      0.00         7
+  21A (Delta)       0.57      0.80      0.67         5
+  21I (Delta)       0.93      0.78      0.85        18
+  21J (Delta)       0.99      0.99      0.99       178
+21K (Omicron)       1.00      0.95      0.98        22
+
+     accuracy                           0.86       311
+    macro avg       0.59      0.60      0.59       311
+ weighted avg       0.86      0.86      0.86       311
+
+CGR 21J (Delta): cgr_k=7_hCoV-19_Poland_1132WSN2021_wsseol_2021.npy
+CGR "20H (Beta: cgr_k=7_hCoV-19_Ghana_WACCBIP-GS550_2021.npy
+CGR 19A: cgr_k=7_hCoV-19_HongKong_HKPU76-0802_2020.npy
+CGR 21I (Delta): cgr_k=7_hCoV-19_Indonesia_JI-ITD-48475NT_2021.npy
+CGR 19B: cgr_k=7_hCoV-19_Thailand_SI202620-NT_2020.npy
+CGR 21A (Delta): cgr_k=7_hCoV-19_Oman_rega-OM-86_2021.npy
+CGR 21K (Omicron): cgr_k=7_hCoV-19_Ghana_TRA-2299_2021.npy
+CGR "20I (Alpha: cgr_k=7_hCoV-19_Kuwait_KU-12024_2021.npy
+CGR 20B: cgr_k=7_hCoV-19_Japan_PG-17452_2020.npy
+CGR "20J (Gamma: cgr_k=7_hCoV-19_Uruguay_UY-NYULH1996_2021.npy
+CGR 20A: cgr_k=7_hCoV-19_HongKong_HKPU-05541_2020.npy
+CGR 20C: cgr_k=7_hCoV-19_USA_SD-SDPHL-0361_2020.npy
+
+10X cross validation classifier balanced accuracies:
+	LinearDiscriminant: 0.9851813581237738
+	LinearSVM: 0.9592235939319547
+	QuadSVM: 0.2738313247463286
+	KNN: 0.6621636330449708

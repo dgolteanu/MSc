@@ -1,0 +1,742 @@
+Run_name: Ontario_gisaid_7
+Method: Chaos Game Representation (CGR)
+kmer: 7
+Median seq length: 29769.0 Shortest sequence: 29464 Longest sequence: 29903
+Dataset size: 24242
+Class sizes:
+O:30, S:127, GH:5420, GR:5125, G:417, V:22, GV:18, GRY:3384, GK:9699, 
+Classification results for LinearDiscriminant fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9996289270611773
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.97      0.99      0.98       339
+          GV       1.00      1.00      1.00         1
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         3
+
+    accuracy                           0.99      2425
+   macro avg       1.00      0.99      1.00      2425
+weighted avg       0.99      0.99      0.99      2425
+
+Classification results for LinearDiscriminant fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9982935791940517
+              precision    recall  f1-score   support
+
+           G       0.98      0.98      0.98        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.99      0.99       513
+         GRY       0.98      0.99      0.98       339
+          GV       1.00      1.00      1.00         2
+           O       0.75      1.00      0.86         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2425
+   macro avg       0.97      0.99      0.98      2425
+weighted avg       0.99      0.99      0.99      2425
+
+Classification results for LinearDiscriminant fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9551535015561993
+              precision    recall  f1-score   support
+
+           G       0.98      0.95      0.96        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       969
+          GR       0.99      0.99      0.99       512
+         GRY       0.99      0.99      0.99       339
+          GV       1.00      1.00      1.00         2
+           O       1.00      0.33      0.50         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           1.00      2424
+   macro avg       1.00      0.92      0.94      2424
+weighted avg       1.00      1.00      1.00      2424
+
+Classification results for LinearDiscriminant fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9981787595500786
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.97      0.98       512
+         GRY       0.95      0.99      0.97       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      0.99      0.99      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearDiscriminant fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9787795488807731
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.98       512
+         GRY       0.97      0.98      0.97       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      0.67      0.80         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       1.00      0.96      0.97      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearDiscriminant fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9961681478827662
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.97      0.98       512
+         GRY       0.95      0.99      0.97       338
+          GV       1.00      0.50      0.67         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      0.94      0.96      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearDiscriminant fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9790519799628122
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.99      0.99       512
+         GRY       0.98      0.99      0.99       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      0.67      0.80         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           1.00      2424
+   macro avg       1.00      0.96      0.98      2424
+weighted avg       1.00      1.00      1.00      2424
+
+Classification results for LinearDiscriminant fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9996546881668339
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.97      0.98       513
+         GRY       0.96      0.99      0.98       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      1.00      1.00      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearDiscriminant fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9982692012465966
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.98      0.99      0.98       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       1.00      0.99      1.00      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearDiscriminant fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9772881986364399
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.96      0.99      0.98       339
+          GV       0.33      1.00      0.50         1
+           O       1.00      0.67      0.80         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         3
+
+    accuracy                           0.99      2424
+   macro avg       0.92      0.96      0.92      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.99641636499998
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       1.00      0.99      0.99       513
+         GRY       0.98      1.00      0.99       339
+          GV       1.00      1.00      1.00         1
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         3
+
+    accuracy                           1.00      2425
+   macro avg       1.00      1.00      1.00      2425
+weighted avg       1.00      1.00      1.00      2425
+
+Classification results for LinearSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9972477259527024
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.99      0.99       513
+         GRY       0.98      0.98      0.98       339
+          GV       1.00      1.00      1.00         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2425
+   macro avg       1.00      1.00      1.00      2425
+weighted avg       0.99      0.99      0.99      2425
+
+Classification results for LinearSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9538932838342087
+              precision    recall  f1-score   support
+
+           G       1.00      0.93      0.96        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       969
+          GR       0.99      0.99      0.99       512
+         GRY       0.99      0.99      0.99       339
+          GV       1.00      1.00      1.00         2
+           O       1.00      0.33      0.50         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           1.00      2424
+   macro avg       1.00      0.92      0.94      2424
+weighted avg       1.00      1.00      1.00      2424
+
+Classification results for LinearSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9848970697676231
+              precision    recall  f1-score   support
+
+           G       0.95      0.98      0.96        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       1.00      0.97      0.98       512
+         GRY       0.95      0.99      0.97       338
+          GV       0.33      0.50      0.40         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.92      0.94      0.92      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9551496938767744
+              precision    recall  f1-score   support
+
+           G       0.98      1.00      0.99        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       512
+         GRY       0.97      0.99      0.98       338
+          GV       1.00      0.50      0.67         2
+           O       1.00      0.67      0.80         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      0.90      0.94      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9833597910626349
+              precision    recall  f1-score   support
+
+           G       0.95      1.00      0.98        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.97      0.98       512
+         GRY       0.95      0.99      0.97       338
+          GV       0.00      0.00      0.00         2
+           O       0.75      1.00      0.86         3
+           S       1.00      1.00      1.00        13
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.85      0.88      0.86      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9791239501059363
+              precision    recall  f1-score   support
+
+           G       1.00      1.00      1.00        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.99      0.99       512
+         GRY       0.98      0.99      0.98       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      0.33      0.50         3
+           S       1.00      1.00      1.00        13
+           V       0.67      1.00      0.80         2
+
+    accuracy                           0.99      2424
+   macro avg       0.96      0.92      0.92      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9812924225399458
+              precision    recall  f1-score   support
+
+           G       0.98      1.00      0.99        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.97      0.99      0.98       338
+          GV       1.00      0.50      0.67         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      0.94      0.96      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9984986721427312
+              precision    recall  f1-score   support
+
+           G       0.98      0.98      0.98        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.98      0.99      0.98       338
+          GV       1.00      1.00      1.00         2
+           O       1.00      1.00      1.00         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         2
+
+    accuracy                           0.99      2424
+   macro avg       0.99      0.99      0.99      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for LinearSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9694765389110435
+              precision    recall  f1-score   support
+
+           G       1.00      0.98      0.99        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.99      0.98      0.99       513
+         GRY       0.97      0.99      0.98       339
+          GV       1.00      1.00      1.00         1
+           O       0.67      0.67      0.67         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         3
+
+    accuracy                           0.99      2424
+   macro avg       0.96      0.96      0.96      2424
+weighted avg       0.99      0.99      0.99      2424
+
+Classification results for QuadSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9325400787987177
+              precision    recall  f1-score   support
+
+           G       0.91      0.51      0.66        41
+          GH       0.99      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.87      0.90       513
+         GRY       0.83      0.99      0.90       339
+          GV       0.00      0.00      0.00         1
+           O       0.00      0.00      0.00         3
+           S       1.00      0.46      0.63        13
+           V       0.00      0.00      0.00         3
+
+    accuracy                           0.96      2425
+   macro avg       0.63      0.54      0.57      2425
+weighted avg       0.96      0.96      0.95      2425
+
+Classification results for QuadSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9471872170746288
+              precision    recall  f1-score   support
+
+           G       1.00      0.56      0.72        41
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.84      0.89       513
+         GRY       0.80      0.98      0.88       339
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.54      0.70        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2425
+   macro avg       0.64      0.55      0.58      2425
+weighted avg       0.95      0.95      0.95      2425
+
+Classification results for QuadSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.8943318360330197
+              precision    recall  f1-score   support
+
+           G       0.95      0.48      0.63        42
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       969
+          GR       0.94      0.82      0.87       512
+         GRY       0.78      0.99      0.87       339
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.62      0.76        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.63      0.54      0.57      2424
+weighted avg       0.95      0.95      0.94      2424
+
+Classification results for QuadSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9215682980773221
+              precision    recall  f1-score   support
+
+           G       0.97      0.76      0.85        42
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.95      0.82      0.88       512
+         GRY       0.78      0.99      0.87       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.31      0.47        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.63      0.54      0.56      2424
+weighted avg       0.95      0.95      0.95      2424
+
+Classification results for QuadSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9323620942525768
+              precision    recall  f1-score   support
+
+           G       1.00      0.50      0.67        42
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.93      0.79      0.86       512
+         GRY       0.76      0.98      0.85       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.54      0.70        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.94      2424
+   macro avg       0.63      0.53      0.56      2424
+weighted avg       0.94      0.94      0.94      2424
+
+Classification results for QuadSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9392540603898899
+              precision    recall  f1-score   support
+
+           G       0.97      0.76      0.85        42
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.95      0.83      0.89       512
+         GRY       0.79      0.99      0.88       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.62      0.76        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.63      0.58      0.60      2424
+weighted avg       0.95      0.95      0.95      2424
+
+Classification results for QuadSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9287045874703471
+              precision    recall  f1-score   support
+
+           G       0.91      0.71      0.80        42
+          GH       0.99      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.95      0.82      0.88       512
+         GRY       0.79      0.99      0.88       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.62      0.76        13
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.63      0.57      0.59      2424
+weighted avg       0.95      0.95      0.95      2424
+
+Classification results for QuadSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9041500357791649
+              precision    recall  f1-score   support
+
+           G       0.90      0.64      0.75        42
+          GH       1.00      0.99      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.82      0.87       513
+         GRY       0.78      0.99      0.87       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.50      0.67        12
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.62      0.55      0.57      2424
+weighted avg       0.95      0.95      0.94      2424
+
+Classification results for QuadSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9432414625360571
+              precision    recall  f1-score   support
+
+           G       0.96      0.52      0.68        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.93      0.82      0.87       513
+         GRY       0.78      0.99      0.87       338
+          GV       0.00      0.00      0.00         2
+           O       0.00      0.00      0.00         3
+           S       1.00      0.75      0.86        12
+           V       0.00      0.00      0.00         2
+
+    accuracy                           0.95      2424
+   macro avg       0.63      0.56      0.59      2424
+weighted avg       0.95      0.95      0.95      2424
+
+Classification results for QuadSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9196989622624014
+              precision    recall  f1-score   support
+
+           G       0.92      0.56      0.70        41
+          GH       0.99      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.80      0.87       513
+         GRY       0.76      0.99      0.86       339
+          GV       0.00      0.00      0.00         1
+           O       0.00      0.00      0.00         3
+           S       1.00      0.58      0.74        12
+           V       0.00      0.00      0.00         3
+
+    accuracy                           0.94      2424
+   macro avg       0.62      0.55      0.57      2424
+weighted avg       0.95      0.94      0.94      2424
+
+Classification results for KNN fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9551785630646474
+              precision    recall  f1-score   support
+
+           G       0.94      0.83      0.88        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.95      0.94      0.94       513
+         GRY       0.91      0.93      0.92       339
+          GV       0.50      1.00      0.67         1
+           O       0.33      0.67      0.44         3
+           S       1.00      0.92      0.96        13
+           V       0.75      1.00      0.86         3
+
+    accuracy                           0.97      2425
+   macro avg       0.82      0.92      0.85      2425
+weighted avg       0.97      0.97      0.97      2425
+
+Classification results for KNN fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.885505356492663
+              precision    recall  f1-score   support
+
+           G       0.79      0.80      0.80        41
+          GH       0.99      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.93      0.94       513
+         GRY       0.91      0.92      0.92       339
+          GV       0.50      0.50      0.50         2
+           O       1.00      0.67      0.80         3
+           S       0.85      0.85      0.85        13
+           V       1.00      0.50      0.67         2
+
+    accuracy                           0.97      2425
+   macro avg       0.89      0.80      0.83      2425
+weighted avg       0.97      0.97      0.97      2425
+
+Classification results for KNN fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.874171034858897
+              precision    recall  f1-score   support
+
+           G       0.85      0.81      0.83        42
+          GH       0.99      0.99      0.99       542
+          GK       1.00      1.00      1.00       969
+          GR       0.95      0.92      0.93       512
+         GRY       0.90      0.93      0.91       339
+          GV       0.33      0.50      0.40         2
+           O       0.50      0.33      0.40         3
+           S       0.93      1.00      0.96        13
+           V       0.50      0.50      0.50         2
+
+    accuracy                           0.97      2424
+   macro avg       0.77      0.78      0.77      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.8823629191499136
+              precision    recall  f1-score   support
+
+           G       0.95      0.93      0.94        42
+          GH       0.99      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.95      0.92      0.93       512
+         GRY       0.89      0.93      0.91       338
+          GV       0.00      0.00      0.00         2
+           O       0.75      1.00      0.86         3
+           S       0.92      0.85      0.88        13
+           V       0.50      0.50      0.50         2
+
+    accuracy                           0.97      2424
+   macro avg       0.77      0.79      0.78      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.8377060629602299
+              precision    recall  f1-score   support
+
+           G       0.92      0.83      0.88        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.93      0.91      0.92       512
+         GRY       0.87      0.90      0.89       338
+          GV       0.00      0.00      0.00         2
+           O       1.00      0.33      0.50         3
+           S       0.86      0.92      0.89        13
+           V       0.50      0.50      0.50         2
+
+    accuracy                           0.96      2424
+   macro avg       0.79      0.71      0.73      2424
+weighted avg       0.96      0.96      0.96      2424
+
+Classification results for KNN fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9262175509818995
+              precision    recall  f1-score   support
+
+           G       0.91      0.95      0.93        42
+          GH       1.00      0.99      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.96      0.93      0.95       512
+         GRY       0.90      0.95      0.92       338
+          GV       0.00      0.00      0.00         2
+           O       0.75      1.00      0.86         3
+           S       1.00      1.00      1.00        13
+           V       0.67      1.00      0.80         2
+
+    accuracy                           0.97      2424
+   macro avg       0.80      0.87      0.83      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.8776156892236369
+              precision    recall  f1-score   support
+
+           G       0.93      0.95      0.94        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.93      0.93       512
+         GRY       0.90      0.91      0.90       338
+          GV       0.50      0.50      0.50         2
+           O       1.00      0.33      0.50         3
+           S       1.00      0.92      0.96        13
+           V       0.50      0.50      0.50         2
+
+    accuracy                           0.97      2424
+   macro avg       0.86      0.78      0.80      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.8731796617133643
+              precision    recall  f1-score   support
+
+           G       0.90      0.86      0.88        42
+          GH       0.99      1.00      0.99       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.94      0.94       513
+         GRY       0.92      0.93      0.92       338
+          GV       0.00      0.00      0.00         2
+           O       0.50      1.00      0.67         3
+           S       1.00      0.75      0.86        12
+           V       1.00      0.50      0.67         2
+
+    accuracy                           0.97      2424
+   macro avg       0.81      0.77      0.77      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.8669268088292692
+              precision    recall  f1-score   support
+
+           G       0.92      0.86      0.89        42
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.93      0.94      0.93       513
+         GRY       0.91      0.91      0.91       338
+          GV       0.00      0.00      0.00         2
+           O       0.67      0.67      0.67         3
+           S       0.92      1.00      0.96        12
+           V       1.00      0.50      0.67         2
+
+    accuracy                           0.97      2424
+   macro avg       0.82      0.76      0.78      2424
+weighted avg       0.97      0.97      0.97      2424
+
+Classification results for KNN fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9014535485288141
+              precision    recall  f1-score   support
+
+           G       0.93      0.90      0.91        41
+          GH       1.00      1.00      1.00       542
+          GK       1.00      1.00      1.00       970
+          GR       0.94      0.93      0.94       513
+         GRY       0.91      0.92      0.92       339
+          GV       0.00      0.00      0.00         1
+           O       0.67      0.67      0.67         3
+           S       1.00      1.00      1.00        12
+           V       1.00      1.00      1.00         3
+
+    accuracy                           0.97      2424
+   macro avg       0.83      0.82      0.83      2424
+weighted avg       0.97      0.97      0.97      2424
+
+CGR GRY: cgr_k=7_Canada_ON-S2495_2021.npy
+CGR O: cgr_k=7_Canada_ON-PHL-3917_2020.npy
+CGR GV: cgr_k=7_Canada_ON-PHL-20-02301_2020.npy
+CGR G: cgr_k=7_Canada_ON-PHL-0976_2020.npy
+CGR V: cgr_k=7_Canada_ON-OICR-SLB2787_2020.npy
+CGR GK: cgr_k=7_Canada_ON-PHL-21-12111_2021.npy
+CGR GH: cgr_k=7_Canada_ON-PHL-0743_2020.npy
+CGR S: cgr_k=7_Canada_ON-PHL-0052_2020.npy
+CGR GR: cgr_k=7_Canada_ON-PHL-3695_2020.npy
+
+10X cross validation classifier balanced accuracies:
+	LinearDiscriminant: 0.970530875362115
+	LinearSVM: 0.9448889203562368
+	QuadSVM: 0.5512651382140438
+	KNN: 0.8009452792539262
