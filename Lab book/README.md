@@ -214,7 +214,7 @@ daniel branch (commit 43120a7) includes classification report (precision, recall
 Re-ran MLDSP CLI on cloud again, same Ontario covid dataset (Not deduplicated data), identical parameters (cgr, k=7) with gisaid class data but using MLDSP repo **daniel branch (commit 695dd9c)** in a new virtualenv on the cloud; run failed due to server hardware failure, temp. files deleted.  
 
 ### 2022/06/25
-Realized the deduplication command that was ran on 2022/05/30 was incorrect, output file was not deduplicated because I ran it incorrectly, below is the correct command that was re-run: `cat 'ontario_filtered<10.fasta' | seqkit rmdup -P -i -s -o './OneDrive_1_2022-02-06/deduplicated<10.fasta' -D duplicates.txt`, old duplicate outputs from [2022/05/30](#20220530) were removed. The duplicates.txt was used as input into [deduplication.ipynb](../Scripts/deduplication.ipynb) to build the various [removed_duplicates_*.csv](../Deduplication/Ontario_covid) with accession Id, gisaid class label pairs in row. 
+Realized the deduplication command that was ran on 2022/05/30 was incorrect, output file was not deduplicated because I ran it incorrectly, below is the correct command that was re-run: `cat 'ontario_filtered<10.fasta' | seqkit rmdup -P -i -s -o './OneDrive_1_2022-02-06/deduplicated<10.fasta' -D duplicates.txt`, old duplicate outputs from [2022/05/30](#20220530) were removed. The duplicates.txt was used as input into [deduplication.ipynb](../Scripts/deduplication.ipynb) to build the 'removed_duplicates_ont_covid_gisaid.csv' with accession Id, gisaid class label pairs in row where each row represents a set of duplicate records. **No duplicates across multiple classes was observed**. Csv subsequently removed as in breach of GISAID Terms of service. See [2023/01/05](#20230105) for how to reproduce csv table from public data.
 output: `4299 duplicated records removed`  
 
 ## Metadata fix
@@ -269,7 +269,8 @@ Longest (max) and shortest (min) sequence length outputs added and class size fi
 Classification report (precision, F1, macro avg accuracy) seen in output now also saved in sklearn standard dict format `{run_name}_classification_report.pkl`. Confusion matrices also saved for each run `{run_name}_confusion)matrices.pkl` instead of just saving the image.  
 Profiling code added to MLDSP github, uncommented as needed, all profiling results going forward are from this method.  
 
-Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with Nextstrain clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`
+Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with Nextstrain clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`.  
+Re-formated deduplication results of Ontario covid data to remove restricted metadata while making deduplication reproducible, see `../Deduplication/Ontario_covid` and [README.md](../Deduplication/README.md)
 
 ### 2023/01/08
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_5** this is a re-run of `Ontario_gisaid_3` thus deduplicated with balanced accuracy score. No algorithmic change, just using better figure outputs.
