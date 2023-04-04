@@ -1,7 +1,7 @@
 # Daniel Olteanu lab book in the Hill lab at the University of Western Ontario
 ## This lab book is intended to be a complete technical track record in chronological order of programs run and/or created to generate new results/data. It is meant to be completely reproducible. "Comments"-are added after the fact (Post-hoc) to give the reader context on errors, re-runs or cautions when (re)reading.  
 
-# None of the below experiments were used, genotyping databases have lots of different formats, need an AI ontology cleanup before revisiting, 5 years??
+# None of the below experiments were used, genotyping databases have lots of different formats, need an AI ontology cleanup before revisiting.
 ## 2019/09/23
 MSc git repository was created on Daniel's local machine (lenovo thinkpad x1 yoga)
 
@@ -43,7 +43,7 @@ MacOS updated to 11.4
 
 ## NOT USED, TOO BIG for MLDSP (59 Gb)
 Downloaded all available GISAID data from website portal https://www.epicov.org/epi3/frontend > "EpiCoV" tab > "Downloads" tab > pop up > "Download packages" header> select "FASTA" and "metadata" download buttons. After unziping the tar.xz we get 2 folders: sequences_fasta_2021_06_16 and metadata_2021_06_16. Also downloaded on the same day all protein sequences https://www.epicov.org/epi3/frontend > "EpiCoV" tab >"Downloads" tab > pop up > "Alignment and proteins" header > allprotXXXX file where on this date XXXX = 0322.  
-Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scroll to bottom of page select "DOWNLOAD DATA" button at the very bottom center see ![Nextstrain website download example]('Lab book/Nextstrain website data download example 2021:06:16.png'). This dataset does not have a nextstrain clade metadata csv, only gisaid & pangolin; would need to be extracted from the newick tree.
+Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scroll to bottom of page select "DOWNLOAD DATA" button at the very bottom center. This dataset does not have a nextstrain clade metadata csv, only gisaid & pangolin; would need to be extracted from the newick tree.
 ## 2021/07/25
 MacOS updated to 11.5
 ## 2021/08/23
@@ -228,7 +228,7 @@ Deduplicated fasta file `deduplicated<10.fasta` was used in the following run **
 ### Post DP profiling
 Re-ran post DP profiling using the same procedure as stated on [2022/05/12](#20220512) (cProfile in CLI mode here; comparison to preDP incorrect) and commit **59c47bf (dev branch)** , except the following command was used:
 `python -m cProfile -o ./postDP_no_testing.prof -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -r BacteriaTest_no_testing`  
-Run **BacteriaTest_no_testing** time was reduced to ~1200 s by removing execution of full model training (used for testing prediction) altogether; roughly 2X the pre DP run time, down from 3X initially.
+Run **BacteriaTest_no_testing** time was reduced to ~1280 s by removing execution of full model training (used for testing prediction) altogether; roughly 2X the pre DP run time, down from 3X initially.
 
 ### 2022/07/15
 MLDSP repo updated to **commit 3172c7d** encompassing metadata changes from [2022/06/25](#20220625).
@@ -244,14 +244,14 @@ Results: `../Results/Incorrect runs/Nextstrain_gisaid` & `../Results/Incorrect r
 
 ### 2022/11/14
 ### Post DP profiling
-Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -r BacteriaTest_no_testing_2`. **BacteriaTest_no_testing_2**
+Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -r BacteriaTest_no_testing_2`. **BacteriaTest_no_testing_2; correct run of cProfile in-line reduced runtime to ~1080 s.**
 
 Realized the reason for 2X discrepancy between pre and post Sharcnet Dedicated Programming (DP) is that the pre DP profiling was done with MLDSP MoDMap computed using principle componenet analysis (PCA) method but the post DP profiling was done with MLDSP MoDMap computed using multi-dimensional scaling (MDS). This hypothesis will be tested by running the postDP profiling one more time using the PCA method. 
 
 ### 2022/11/15
 
 Ran post DP profiling again from same commit **59c47bf (dev branch)** but with MoDMap method set to PCA (full model still commented out)
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_3`. **BacteriaTest_no_testing_3** Total run time was ~770s which is faster than the preDP profiling ~830s. We can see difference in runtime is due to PCA vs MDS when comparing outputs of [profiling.ipynb](../Scripts/profiling.ipynb) with `Profiling/Initial attempts/BacteriaTest_no_testing_2/BacteriaTest_no_testing_2_profile.prof` and `Profiling/Initial attempts/BacteriaTest_no_testing_3/BacteriaTest_no_testing_3_profile.prof`. For an accurate comparison to MATLAB, we must wait for scikit learn pull request #
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_3`. **BacteriaTest_no_testing_3: total run time was ~770s which is faster than the preDP profiling ~830s.** We can see difference in runtime is due to PCA vs MDS when comparing outputs of [profiling.ipynb](../Scripts/profiling.ipynb) with `Profiling/Initial attempts/BacteriaTest_no_testing_2/BacteriaTest_no_testing_2_profile.prof` and `Profiling/Initial attempts/BacteriaTest_no_testing_3/BacteriaTest_no_testing_3_profile.prof`. For an accurate comparison to MATLAB, we must wait for scikit learn pull request #22330
 
 Ran **Ontario_epochs_2** on the cloud with deduplicated Ontario covid dataset and epochs metadata `nohup MLDSP /home/ubuntu/daniel/daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ /home/ubuntu/daniel/daniel_data/Ontario_covid/epoch_metadata.csv -k 7 -r Ontario_epochs_2 > ./Ontario_epochs_2.log &`
 
@@ -308,6 +308,6 @@ On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the f
 
 `deduplicated_gisaid<20.fasta` from [2023/01/15](#20230115) moved to cloud VM.
 
-# Not yet run
+### 2023/04/02
 ## Actual final post sharcnet DP profiling results
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4`  
