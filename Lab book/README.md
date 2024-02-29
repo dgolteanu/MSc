@@ -256,8 +256,7 @@ Ran post DP profiling again from same commit **59c47bf (dev branch)** but with M
 Ran **Ontario_epochs_2** on the cloud with deduplicated Ontario covid dataset and epochs metadata `nohup MLDSP /home/ubuntu/daniel/daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ /home/ubuntu/daniel/daniel_data/Ontario_covid/epoch_metadata.csv -k 7 -r Ontario_epochs_2 > ./Ontario_epochs_2.log &`
 
 ### 2023/01/03
-## ALL MLDSP runs up to now will have inaccurate Class sizes showing what is available in the metadata.csv not how many samples per class from the fasta were actually run. Class sizes will not sum up to total dataset size
-Cleaned MLDSP confusion matrix output to show whole numbers an intercluster distance csv to show scientific notation.  
+## ALL MLDSP runs up to now will have inaccurate Class sizes showing what is available in the metadata.csv not how many samples per class from the fasta were actually run. Class sizes will not sum up to total dataset size Cleaned MLDSP confusion matrix output to show whole numbers and intercluster distance csv to show scientific notation.  
 MLDSP CLI now ouputs MoDMap.json (same as what is passed to web server) which can be viewed with plotly in python or in jupyter notebook.
 
 ### 2023/01/04
@@ -269,7 +268,7 @@ Longest (max) and shortest (min) sequence length outputs added and class size fi
 Classification report (precision, F1, macro avg accuracy) seen in output now also saved in sklearn standard dict format `{run_name}_classification_report.pkl`. Confusion matrices also saved for each run `{run_name}_confusion)matrices.pkl` instead of just saving the image.  
 Profiling code added to MLDSP github, uncommented as needed, all profiling results going forward are from this method.  
 
-Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with Nextstrain clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`.  
+Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with **Nextstrain clades** containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`.  
 Re-formated deduplication results of Ontario covid data to remove restricted metadata while making deduplication reproducible, see `../Deduplication/Ontario_covid` and [README.md](../Deduplication/README.md)
 
 ### 2023/01/08
@@ -284,7 +283,7 @@ Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_unduplica
 ### 2023/01/15
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_6** this is a re-run of `Ontario_gisaid_4` (non-deduplicated). No algorithmic change, just using better figure outputs.  
 
-Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with gisaid clades containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_gisaid<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_gisaid<20.fasta' -D gisaid_duplicated.txt` the output was `28 duplicated records removed`
+Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with **gisaid clades** containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_gisaid<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_gisaid<20.fasta' -D gisaid_duplicated.txt` the output was `28 duplicated records removed`
 
 ### 2023/02/14
 Fixed error causing data leakage in 10X cross validation leading to inflated accuracy scores & artificially high generalization potential: Distance matrix in training set was only being subset by rows (samples) while retaining all columns (features) including the ones used in the test fold. Now Distance matrix rows & columns are subset by training sample indices and test sample indices are used to select samples (rows) while columns are subset on training indices since feature vector length must be the same in train & test sets. Therefore, testing set columns are lost but this information is only the relationship between test set samples, not relative to training set & is not considered data leakeage.
@@ -296,9 +295,9 @@ Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_7** this 
 Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_3** this is a re-run of `Ontario_epochs_unduplicated` (non-deduplicated) with fixed classification code from [2023/02/14](#20230214): `nohup MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/epochs_metadata.csv -r Ontario_epochs_3 &`.
 
 ### 2023/03/25
-Re-ran MLDSP CLI on cloud with Nextstrain dataset both gisaid: `cleaned_gisaid<20.fasta` and nextstrain clade metadata: `cleaned_nextstrain<20.fasta` this is a re-run of datasets from [2022/01/11](#20220111) with fixed cross validation. `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/gisaid_metadata.csv' -r 'Nextstrain_gisaid_2' &` **Nextstrain_gisaid_2**  
+Re-ran MLDSP CLI on cloud with Nextstrain dataset both gisaid: `cleaned_gisaid<20.fasta` and nextstrain clade metadata: `cleaned_nextstrain<20.fasta` this is a re-run from [2023/01/11](#20230111) with fixed cross validation. `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/gisaid_metadata.csv' -r 'Nextstrain_gisaid_2' &` **Nextstrain_gisaid_2** (non-deduplicated)
 
-`nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clade_2' &` **Nextstrain_clade_2**  
+`nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clade_2' &` **Nextstrain_clade_2** (non-deduplicated)
 
 On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the fixed cross validation code commit:  
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/metadata.csv -r Dengue_2`  
@@ -310,4 +309,4 @@ On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the f
 
 ### 2023/04/02
 ## Actual final post sharcnet DP profiling results
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4`  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4` ~Run time 1500s
