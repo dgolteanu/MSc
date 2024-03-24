@@ -181,7 +181,7 @@ profiler.dump_stats(f'{args.run_name}_profile.prof')
 ```
 This was done to control for variances in running the CProfile profiler inside the script(previously done for pre DP profiling) vs. as a command-line module (previously done only for post DP profiling). Another possible confounding error is to have the profiler disable function NOT indented under `if __name__ == '__main__':` versus indented as it is in these runs; more experimentation here may be required. **in script execution of cProfile for Post DP was not used until much later [2022/11/14](#20221114) due to incorrect calling of cProfile CLI despite codeblock being added**
 ###  Pre DP profiling final results
-MLDSP output from this profiling run can be found in `Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof` with results viewable by downloading & opening the [Pre DP profiling.html](../Profiling/preDP/Pre DP profiling.html) the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof). Run time was **829.277 s** and full results can be viewed from the `.prof` using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook.
+MLDSP output from this profiling run can be found in `Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof` with results viewable by downloading & opening the [Pre DP profiling.html](../Profiling/preDP/Pre_DP_profiling.html) the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof). Run time was **829.277 s** and full results can be viewed from the `.prof` using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook.
 ### Post DP profiling
 ## Comment: re-run several times below, iterave modifications to narrow down runtime gap with Pre DP results, all results under `Profiling/postDP`
 (cProfile in CLI mode here; comparison to preDP incorrect)
@@ -308,5 +308,10 @@ On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the f
 `deduplicated_gisaid<20.fasta` from [2023/01/15](#20230115) moved to cloud VM.
 
 ### 2023/04/02
-## Actual final post sharcnet DP profiling results
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4` ~Run time 1500s
+### 2024/03/23 
+BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using committ **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6**. However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
+## Actual final post sharcnet DP profiling results
+Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. ~Run time 760s
+
+Jumped back to current committ and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** ~Run time 731s
