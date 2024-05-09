@@ -310,8 +310,34 @@ On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the f
 ### 2023/04/02
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4` ~Run time 1500s
 ### 2024/03/23 
-BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using committ **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6**. However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
+BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using committ **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6** (probability=True). However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
 ## Actual final post sharcnet DP profiling results
-Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. ~Run time 760s
+Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. ~Run time 760s  
 
-Jumped back to current committ and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** ~Run time 731s
+Jumped back to current committ **e424fa1** and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** ~Run time 731s
+### 2024/05/09
+# Notes on results including accuracy scores, AUROC
+## Log files
+#### AUROC
+sklearn.metrics.roc_auc_score (per fold per class inside classify_distmat)>log
+#### Classification report 
+sklearn.metrics.classification_report (per fold per class inside classify_distmat as 2nd instance)>log
+#### Balanced accuracy
+sklearn.metrics.balanced_accuracy_score>acc(per fold per class inside classify_distmat)>classify_distmat{model_name:+=acc}>mean_model_accuracies>mean_model_accuracies.values/folds>mean_model_accuracies>main{accuracy}>log
+## Flow of classification report from sklearn function to thesis figure 
+ sklearn.metrics.classification_report (per fold per class inside classify_distmat as 1st instance)>classify_distmat{model_name:[report_fold1,report_fold2,...]}>class_report>classification_report.pkl>classification_report.ipynb>unweighted mean of each sklearn.metrics.classification_report value across X folds of CV>average_metrics
+ #### Classification report tables
+ average_metrics>drop support values (mean of support across folds nonsensical), drop 'accuracy'>d**ataset.tex**
+#### Accuracy tables (unbalanced, balanced added manually in latex along with AUROCs)
+average_metrics>**dataset_accuracy.tex**  
+#### Flow of classification report from sklearn function to thesis figure 
+Balanced accuracy taken from log files, manually rounded to 2 significant figures
+## Flow of AUROC from sklearn function to thesis figure 
+AUROC values per fold per classifier taken manually from log.  
+For covid datasts to AUROC_averages.ipynb>calculate unweighted mean over X CV folds>manually add to **dataset_accuracy.tex ** 
+For validation datasts to AUROC_average.xlsx>calculate unweighted mean over X CV folds>manually add to dataset_accuracy.tex
+
+# Validation of Intercluster distances
+Validation was not possible in 2021 as Intercluster distances are only available on MLDSP-GUI. To manually validate intercluster distances from python run [here](../Validation/Primates output/cgr/Images/Intercluster distance.csv)  is being compared to a local run of MLDSP-GUI also with CGR k=5, distance excel can be found in Validation folder [here](../Validation/MATLAB\ output/IntClustDist.xls)
+
+/Users/dolteanu/local_documents/Coding/MSc_github/Validation/MATLAB output/IntClustDist.xls
