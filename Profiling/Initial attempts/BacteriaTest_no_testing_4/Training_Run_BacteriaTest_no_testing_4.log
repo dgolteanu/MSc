@@ -1,0 +1,496 @@
+Run_name: BacteriaTest_no_testing_4
+Method: Chaos Game Representation (CGR)
+kmer: 6
+Median seq length: 70992.0 Shortest sequence: 20019 Longest sequence: 499136
+Dataset size: 4710
+Class sizes:
+Proteobacteria:3144, Spirochaetes:437, Firmicutes:1129, 
+Classification results for LinearDiscriminant fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9932208994708995
+                precision    recall  f1-score   support
+
+    Firmicutes       0.96      0.97      0.97       112
+Proteobacteria       0.99      0.99      0.99       315
+  Spirochaetes       1.00      0.95      0.98        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.97      0.98       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9963017952830672
+                precision    recall  f1-score   support
+
+    Firmicutes       0.97      0.97      0.97       113
+Proteobacteria       0.99      0.99      0.99       315
+  Spirochaetes       1.00      1.00      1.00        43
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9993538418317179
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.99      0.99       113
+Proteobacteria       1.00      0.99      1.00       315
+  Spirochaetes       1.00      1.00      1.00        43
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9977829283139018
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.99      0.99       113
+Proteobacteria       1.00      0.99      0.99       315
+  Spirochaetes       0.98      1.00      0.99        43
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.99904176765684
+                precision    recall  f1-score   support
+
+    Firmicutes       0.99      0.99      0.99       113
+Proteobacteria       1.00      1.00      1.00       314
+  Spirochaetes       1.00      1.00      1.00        44
+
+      accuracy                           1.00       471
+     macro avg       1.00      1.00      1.00       471
+  weighted avg       1.00      1.00      1.00       471
+
+Classification results for LinearDiscriminant fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9975937436480811
+                precision    recall  f1-score   support
+
+    Firmicutes       1.00      0.97      0.99       113
+Proteobacteria       0.99      1.00      1.00       314
+  Spirochaetes       1.00      1.00      1.00        44
+
+      accuracy                           0.99       471
+     macro avg       1.00      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9963131113855425
+                precision    recall  f1-score   support
+
+    Firmicutes       1.00      0.97      0.99       113
+Proteobacteria       0.99      1.00      1.00       314
+  Spirochaetes       1.00      1.00      1.00        44
+
+      accuracy                           0.99       471
+     macro avg       1.00      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9969276995762256
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.97      0.98       113
+Proteobacteria       1.00      0.99      1.00       314
+  Spirochaetes       0.96      1.00      0.98        44
+
+      accuracy                           0.99       471
+     macro avg       0.98      0.99      0.98       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9979708020968379
+                precision    recall  f1-score   support
+
+    Firmicutes       0.97      0.99      0.98       113
+Proteobacteria       1.00      0.99      0.99       314
+  Spirochaetes       0.98      1.00      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.98      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearDiscriminant fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9951772388219039
+                precision    recall  f1-score   support
+
+    Firmicutes       0.97      0.99      0.98       113
+Proteobacteria       0.99      0.99      0.99       314
+  Spirochaetes       1.00      0.98      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9950584716209715
+                precision    recall  f1-score   support
+
+    Firmicutes       0.99      0.98      0.99       112
+Proteobacteria       0.99      1.00      1.00       315
+  Spirochaetes       1.00      0.98      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9989338499114173
+                precision    recall  f1-score   support
+
+    Firmicutes       0.99      0.98      0.99       113
+Proteobacteria       0.99      1.00      1.00       315
+  Spirochaetes       1.00      1.00      1.00        43
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9987621290770088
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.99      0.99       113
+Proteobacteria       1.00      0.99      1.00       315
+  Spirochaetes       1.00      1.00      1.00        43
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.999929765416491
+                precision    recall  f1-score   support
+
+    Firmicutes       0.97      0.99      0.98       113
+Proteobacteria       1.00      0.99      0.99       315
+  Spirochaetes       0.98      1.00      0.99        43
+
+      accuracy                           0.99       471
+     macro avg       0.98      0.99      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 1.0
+                precision    recall  f1-score   support
+
+    Firmicutes       1.00      1.00      1.00       113
+Proteobacteria       1.00      1.00      1.00       314
+  Spirochaetes       1.00      1.00      1.00        44
+
+      accuracy                           1.00       471
+     macro avg       1.00      1.00      1.00       471
+  weighted avg       1.00      1.00      1.00       471
+
+Classification results for LinearSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9999953027826316
+                precision    recall  f1-score   support
+
+    Firmicutes       1.00      1.00      1.00       113
+Proteobacteria       1.00      1.00      1.00       314
+  Spirochaetes       0.98      1.00      0.99        44
+
+      accuracy                           1.00       471
+     macro avg       0.99      1.00      1.00       471
+  weighted avg       1.00      1.00      1.00       471
+
+Classification results for LinearSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9996927592821286
+                precision    recall  f1-score   support
+
+    Firmicutes       0.99      0.97      0.98       113
+Proteobacteria       0.99      1.00      1.00       314
+  Spirochaetes       1.00      0.98      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.98      0.99       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9989108861001652
+                precision    recall  f1-score   support
+
+    Firmicutes       0.97      0.97      0.97       113
+Proteobacteria       0.99      0.99      0.99       314
+  Spirochaetes       1.00      0.98      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.98      0.98       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9995707383854895
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.96      0.97       113
+Proteobacteria       0.98      0.99      0.99       314
+  Spirochaetes       1.00      0.98      0.99        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.98      0.98       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for LinearSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9891193229857905
+                precision    recall  f1-score   support
+
+    Firmicutes       0.98      0.98      0.98       113
+Proteobacteria       0.99      0.99      0.99       314
+  Spirochaetes       1.00      0.95      0.98        44
+
+      accuracy                           0.99       471
+     macro avg       0.99      0.98      0.98       471
+  weighted avg       0.99      0.99      0.99       471
+
+Classification results for QuadSVM fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.9774621212121213
+                precision    recall  f1-score   support
+
+    Firmicutes       0.93      0.67      0.78       112
+Proteobacteria       0.88      0.98      0.93       315
+  Spirochaetes       0.97      0.80      0.88        44
+
+      accuracy                           0.89       471
+     macro avg       0.92      0.82      0.86       471
+  weighted avg       0.90      0.89      0.89       471
+
+Classification results for QuadSVM fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.978129386258631
+                precision    recall  f1-score   support
+
+    Firmicutes       0.86      0.75      0.80       113
+Proteobacteria       0.90      0.97      0.93       315
+  Spirochaetes       0.94      0.79      0.86        43
+
+      accuracy                           0.90       471
+     macro avg       0.90      0.84      0.87       471
+  weighted avg       0.90      0.90      0.90       471
+
+Classification results for QuadSVM fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9894954107960899
+                precision    recall  f1-score   support
+
+    Firmicutes       0.92      0.80      0.85       113
+Proteobacteria       0.92      0.97      0.94       315
+  Spirochaetes       0.90      0.88      0.89        43
+
+      accuracy                           0.92       471
+     macro avg       0.91      0.88      0.90       471
+  weighted avg       0.92      0.92      0.92       471
+
+Classification results for QuadSVM fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9841567113227949
+                precision    recall  f1-score   support
+
+    Firmicutes       0.93      0.72      0.81       113
+Proteobacteria       0.89      0.97      0.93       315
+  Spirochaetes       0.95      0.88      0.92        43
+
+      accuracy                           0.90       471
+     macro avg       0.92      0.86      0.89       471
+  weighted avg       0.91      0.90      0.90       471
+
+Classification results for QuadSVM fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9801449689385827
+                precision    recall  f1-score   support
+
+    Firmicutes       0.91      0.81      0.85       113
+Proteobacteria       0.92      0.98      0.95       314
+  Spirochaetes       0.97      0.80      0.88        44
+
+      accuracy                           0.92       471
+     macro avg       0.93      0.86      0.89       471
+  weighted avg       0.92      0.92      0.92       471
+
+Classification results for QuadSVM fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.966123668338876
+                precision    recall  f1-score   support
+
+    Firmicutes       0.78      0.71      0.74       113
+Proteobacteria       0.90      0.95      0.92       314
+  Spirochaetes       0.97      0.82      0.89        44
+
+      accuracy                           0.88       471
+     macro avg       0.88      0.83      0.85       471
+  weighted avg       0.88      0.88      0.88       471
+
+Classification results for QuadSVM fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.981630570686289
+                precision    recall  f1-score   support
+
+    Firmicutes       0.93      0.70      0.80       113
+Proteobacteria       0.89      0.98      0.93       314
+  Spirochaetes       0.97      0.84      0.90        44
+
+      accuracy                           0.90       471
+     macro avg       0.93      0.84      0.88       471
+  weighted avg       0.91      0.90      0.90       471
+
+Classification results for QuadSVM fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.9821286892372232
+                precision    recall  f1-score   support
+
+    Firmicutes       0.88      0.67      0.76       113
+Proteobacteria       0.89      0.97      0.93       314
+  Spirochaetes       0.95      0.89      0.92        44
+
+      accuracy                           0.89       471
+     macro avg       0.91      0.84      0.87       471
+  weighted avg       0.89      0.89      0.89       471
+
+Classification results for QuadSVM fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9829010612295095
+                precision    recall  f1-score   support
+
+    Firmicutes       0.94      0.78      0.85       113
+Proteobacteria       0.91      0.98      0.94       314
+  Spirochaetes       0.92      0.82      0.87        44
+
+      accuracy                           0.92       471
+     macro avg       0.92      0.86      0.89       471
+  weighted avg       0.92      0.92      0.91       471
+
+Classification results for QuadSVM fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9818862487680479
+                precision    recall  f1-score   support
+
+    Firmicutes       0.92      0.79      0.85       113
+Proteobacteria       0.92      0.97      0.94       314
+  Spirochaetes       0.86      0.82      0.84        44
+
+      accuracy                           0.91       471
+     macro avg       0.90      0.86      0.88       471
+  weighted avg       0.91      0.91      0.91       471
+
+Classification results for KNN fold 1:
+Area Under the Receiver Operating Characteristic Curve: 0.94004329004329
+                precision    recall  f1-score   support
+
+    Firmicutes       0.92      0.89      0.90       112
+Proteobacteria       0.97      0.98      0.97       315
+  Spirochaetes       0.93      0.89      0.91        44
+
+      accuracy                           0.95       471
+     macro avg       0.94      0.92      0.93       471
+  weighted avg       0.95      0.95      0.95       471
+
+Classification results for KNN fold 2:
+Area Under the Receiver Operating Characteristic Curve: 0.9649488594230311
+                precision    recall  f1-score   support
+
+    Firmicutes       0.91      0.94      0.92       113
+Proteobacteria       0.98      0.97      0.97       315
+  Spirochaetes       0.95      0.95      0.95        43
+
+      accuracy                           0.96       471
+     macro avg       0.95      0.95      0.95       471
+  weighted avg       0.96      0.96      0.96       471
+
+Classification results for KNN fold 3:
+Area Under the Receiver Operating Characteristic Curve: 0.9579745652805953
+                precision    recall  f1-score   support
+
+    Firmicutes       0.88      0.93      0.90       113
+Proteobacteria       0.98      0.95      0.96       315
+  Spirochaetes       0.89      0.95      0.92        43
+
+      accuracy                           0.94       471
+     macro avg       0.92      0.94      0.93       471
+  weighted avg       0.95      0.94      0.95       471
+
+Classification results for KNN fold 4:
+Area Under the Receiver Operating Characteristic Curve: 0.9714174645642025
+                precision    recall  f1-score   support
+
+    Firmicutes       0.92      0.97      0.94       113
+Proteobacteria       0.99      0.96      0.97       315
+  Spirochaetes       0.91      0.95      0.93        43
+
+      accuracy                           0.96       471
+     macro avg       0.94      0.96      0.95       471
+  weighted avg       0.96      0.96      0.96       471
+
+Classification results for KNN fold 5:
+Area Under the Receiver Operating Characteristic Curve: 0.9814877325763126
+                precision    recall  f1-score   support
+
+    Firmicutes       0.96      0.96      0.96       113
+Proteobacteria       0.99      0.98      0.99       314
+  Spirochaetes       0.96      0.98      0.97        44
+
+      accuracy                           0.98       471
+     macro avg       0.97      0.98      0.97       471
+  weighted avg       0.98      0.98      0.98       471
+
+Classification results for KNN fold 6:
+Area Under the Receiver Operating Characteristic Curve: 0.9372396247008727
+                precision    recall  f1-score   support
+
+    Firmicutes       0.88      0.92      0.90       113
+Proteobacteria       0.97      0.96      0.97       314
+  Spirochaetes       0.95      0.86      0.90        44
+
+      accuracy                           0.94       471
+     macro avg       0.93      0.92      0.92       471
+  weighted avg       0.95      0.94      0.94       471
+
+Classification results for KNN fold 7:
+Area Under the Receiver Operating Characteristic Curve: 0.9645847958760139
+                precision    recall  f1-score   support
+
+    Firmicutes       0.95      0.89      0.92       113
+Proteobacteria       0.97      0.99      0.98       314
+  Spirochaetes       0.93      0.98      0.96        44
+
+      accuracy                           0.96       471
+     macro avg       0.95      0.95      0.95       471
+  weighted avg       0.96      0.96      0.96       471
+
+Classification results for KNN fold 8:
+Area Under the Receiver Operating Characteristic Curve: 0.949114723982967
+                precision    recall  f1-score   support
+
+    Firmicutes       0.91      0.93      0.92       113
+Proteobacteria       0.97      0.98      0.98       314
+  Spirochaetes       1.00      0.89      0.94        44
+
+      accuracy                           0.96       471
+     macro avg       0.96      0.93      0.94       471
+  weighted avg       0.96      0.96      0.96       471
+
+Classification results for KNN fold 9:
+Area Under the Receiver Operating Characteristic Curve: 0.9822839109202617
+                precision    recall  f1-score   support
+
+    Firmicutes       0.96      0.96      0.96       113
+Proteobacteria       0.99      0.99      0.99       314
+  Spirochaetes       0.96      0.98      0.97        44
+
+      accuracy                           0.98       471
+     macro avg       0.97      0.98      0.97       471
+  weighted avg       0.98      0.98      0.98       471
+
+Classification results for KNN fold 10:
+Area Under the Receiver Operating Characteristic Curve: 0.9562127532013672
+                precision    recall  f1-score   support
+
+    Firmicutes       0.91      0.94      0.93       113
+Proteobacteria       0.98      0.98      0.98       314
+  Spirochaetes       0.95      0.91      0.93        44
+
+      accuracy                           0.96       471
+     macro avg       0.95      0.94      0.95       471
+  weighted avg       0.96      0.96      0.96       471
+
+CGR Proteobacteria: cgr_k=6_NZ_CP016533.1.npy
+CGR Spirochaetes: cgr_k=6_NZ_CP014325.1.npy
+CGR Firmicutes: cgr_k=6_NZ_AP014866.1.npy
+
+10X cross validation classifier balanced accuracies:
+	LinearDiscriminant: 0.9896998941384121
+	LinearSVM: 0.9886557028190814
+	QuadSVM: 0.8483383882439857
+	KNN: 0.9473743627425218
