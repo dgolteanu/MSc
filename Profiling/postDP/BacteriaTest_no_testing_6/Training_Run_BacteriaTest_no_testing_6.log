@@ -1,4 +1,4 @@
-Run_name: BacteriaTest_no_testing_7
+Run_name: BacteriaTest_no_testing_6
 Method: Chaos Game Representation (CGR)
 kmer: 6
 Median seq length: 70992.0 Shortest sequence: 20019 Longest sequence: 499136

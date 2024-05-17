@@ -46,6 +46,9 @@ Downloaded all available GISAID data from website portal https://www.epicov.org/
 Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scroll to bottom of page select "DOWNLOAD DATA" button at the very bottom center. This dataset does not have a nextstrain clade metadata csv, only gisaid & pangolin; would need to be extracted from the newick tree.
 ## 2021/07/25
 MacOS updated to 11.5
+## 2021/08/12
+# Validation of python implementation
+Begin validation of MLDSP python implementation by running MLDSP MATLAB on local machine using Primates dataset with all available numerical representation methods including unreleased 1D-CGR and Purine/Pyrimidine CGR courtesy of Gurjit Randhawa. .mat output files were saved for each run in `/Validation/Primates output/`. Jupyter notebook `../Validation/mldsp_testing_framework.ipynb` was used to iteratively perform runs of MLDSP python for all numerical methods using the Primates dataset then quantitatively compare the equivalent outputs for equality. All methods were equal up to Distance matrix with MDS outputs being different due to different MDS algorithms in MATLAB & Python. Intercluster distance was not compared.
 ## 2021/08/23
 Profiling of MATLAB MLDSP using the BacteriaTest dataset
 ## 2021/08/29
