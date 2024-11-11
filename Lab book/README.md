@@ -330,7 +330,7 @@ sklearn.metrics.balanced_accuracy_score>acc(per fold per class inside classify_d
 ## Flow of classification report from sklearn function to thesis figure 
  sklearn.metrics.classification_report (per fold per class inside classify_distmat as 1st instance)>classify_distmat{model_name:[report_fold1,report_fold2,...]}>class_report>classification_report.pkl>classification_report.ipynb>unweighted mean of each sklearn.metrics.classification_report value across X folds of CV>average_metrics
  #### Classification report tables
- average_metrics>drop support values (mean of support across folds nonsensical), drop 'accuracy'>d**ataset.tex**
+ average_metrics>drop support values (mean of support across folds nonsensical), drop 'accuracy'>**dataset.tex**
 #### Accuracy tables (unbalanced, balanced added manually in latex along with AUROCs)
 average_metrics>**dataset_accuracy.tex**  
 #### Flow of classification report from sklearn function to thesis figure 
@@ -341,6 +341,4 @@ For covid datasts to AUROC_averages.ipynb>calculate unweighted mean over X CV fo
 For validation datasts to AUROC_average.xlsx>calculate unweighted mean over X CV folds>manually add to dataset_accuracy.tex
 
 # Validation of Intercluster distances
-Validation was not possible in 2021 as Intercluster distances are only available on MLDSP-GUI. To manually validate intercluster distances from python run [here](../Validation/Primates output/cgr/Images/Intercluster distance.csv)  is being compared to a local run of MLDSP-GUI also with CGR k=5, distance excel can be found in Validation folder [here](../Validation/MATLAB\ output/IntClustDist.xls)
-
-/Users/dolteanu/local_documents/Coding/MSc_github/Validation/MATLAB output/IntClustDist.xls
+Validation was not possible in 2021 as Intercluster distances are only available on MLDSP-GUI. To manually validate intercluster distances from python run [here](../Validation/Intercluster%20validation/cgr/Images/Intercluster%20distance.csv)  is being compared to a local run of MLDSP-GUI also with CGR k=5, distance excel can be found in Validation folder [IntClustDist.xls](../Validation/Intercluster%20validation/IntClustDist.xls)
