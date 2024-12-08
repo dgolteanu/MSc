@@ -48,7 +48,7 @@ Downloaded Nextstrain website data https://nextstrain.org/ncov/gisaid/global scr
 MacOS updated to 11.5
 ## 2021/08/12
 # Validation of python implementation
-Begin validation of MLDSP python implementation by running MLDSP MATLAB on local machine using Primates dataset with all available numerical representation methods including unreleased 1D-CGR and Purine/Pyrimidine CGR courtesy of Gurjit Randhawa. .mat output files were saved for each run in `/Validation/Primates output/`. Jupyter notebook `../Validation/mldsp_testing_framework.ipynb` was used to iteratively perform runs of MLDSP python for all numerical methods using the Primates dataset then quantitatively compare the equivalent outputs for equality. All methods were equal up to Distance matrix with MDS outputs being different due to different MDS algorithms in MATLAB & Python. Intercluster distance was not compared.
+Begin validation of MLDSP python implementation by running MLDSP MATLAB on local machine using Primates dataset with all available numerical representation methods including unreleased 1D-CGR and Purine/Pyrimidine CGR courtesy of Gurjit Randhawa. `.mat` output files were saved for each run in [Validation/MATLAB output/Primates_testing_all_numerical_methods](../Validation/MATLAB%20output/Primates_testing_all_numerical_methods). The  [MLDSP testing framework Jupyter notebook](../Validation/mldsp_testing_framework.ipynb) was used to iteratively perform runs of MLDSP python for all numerical methods using the Primates dataset then quantitatively compare the equivalent outputs for equality. All methods were equal up to Distance matrix with MDS outputs being different due to different MDS algorithms in MATLAB & Python, validation results can be found [here](../Validation/Results). Intercluster distance was not compared.
 ## 2021/08/23
 Profiling of MATLAB MLDSP using the BacteriaTest dataset
 ## 2021/08/29
@@ -67,7 +67,7 @@ Running Mantel test of Dengue dataset vs covid19 gisaid data, may not be appropr
 
 ## 2022/04/11
 ### MATLAB profiling
-MATLAB mldsp was previously profiled on [2021/08/23](#20210823) on my mac at the time running macos 11.5 (MATLAB R2019a). The BacteriaTest dataset was used with the cgr numerical method at k=6; the builtin profiler was run using the `Run & Time` button on the MATLAB desktop, as described in the [MATLAB documentation](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html#mw_e3eebe5c-984d-42ad-8b1f-6269890525fc). All other programs were closed during the profiling run. Profiling results can be found in [Profiling/MATLAB/Timing.pdf](../Profiling/MATLAB/Timing.pdf), the approximate run time was **~590 s**.  
+MATLAB mldsp was previously profiled on [2021/08/23](#20210823) on my mac at the time running macos 11.5 (MATLAB R2019a). The BacteriaTest dataset was used with the cgr numerical method at k=6; the builtin profiler was run using the `Run & Time` button on the MATLAB desktop, as described in the [MATLAB documentation](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html#mw_e3eebe5c-984d-42ad-8b1f-6269890525fc). All other programs were closed during the profiling run. Profiling results can be found in [Profiling/MATLAB/Timing.pdf](../Profiling/MATLAB/Bacteria_Timing.pdf), the approximate run time was **~590 s**.  
 Attempting to reproduce profiling with python version (pre & post DP)
 ## 2022/04/13
 Mac OS auto updated following an overnight crash from 11.6 to `11.6.5 (20G527)`. 
@@ -98,12 +98,12 @@ Followed at the end of the main.py script (line 282 as seen in commit, N.B lines
 profiler.disable()
 profiler.dump_stats(f'{Run_name}_profile.prof')
 ```
-All other mentions of cProfile/Pstats code were removed/commented from main.py as seen in the commit, `data_set` (line 110), `metadata` (line 111), `Run_name` (line 112) and `k_val` (line 127) variables were changed to the "BacteriaTest" dataset and k value of 6 respectively. No other code modifications from what is seen in the commit were made, all line numbers are quoted as seen in the commit (as modifications susequently change line numbering). **Exact profiling code existed only on local machine as profiling occured after commit 0f8f3ed where the branch had significant commits; to reporduce profiling download the given commit and perform above mentioned modifications before running**.  
+All other mentions of cProfile/Pstats code were removed/commented from main.py as seen in the commit, `data_set` (line 110), `metadata` (line 111), `Run_name` (line 112) and `k_val` (line 127) variables were changed to the "BacteriaTest" dataset and k value of 6 respectively. No other code modifications from what is seen in the commit were made, all line numbers are quoted as seen in the commit (as modifications subsequently change line numbering). Exact profiling code existed only on local machine as profiling occured some time after commit 0f8f3ed was pushed, the local branch had significant commits thus was stashed to revert to commit 0f8f3ed; **to reporduce profiling download the given commit and perform above mentioned modifications before running**.  
 
-**Any 'Profiling' results/files seen in this or subsequent MLDSP code commits on github should not be interpreted as they may be incorrect or test runs, only the results in this MSc repository**. 
+Any 'Profiling' results/files seen in this or subsequent MLDSP code commits on github should not be interpreted as they may be incorrect or test runs, only the results in this MSc repository. 
 Profiling results can be viewed by importing the desired cProfile output file into the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook. The aproximate total run time was **930.171 s**.
 
-N.B cProfile could not be run from the command line as a module due to errors in pickling within the parallel code (pool).
+N.B cProfile could not be run from the command line as a module due to errors in pickling within the parallel code (pool):
 ```
 Traceback (most recent call last):
   File "/Users/dolteanu/.pyenv/versions/3.9.0/lib/python3.9/runpy.py", line 197, in _run_module_as_main
@@ -135,8 +135,8 @@ Traceback (most recent call last):
 _pickle.PicklingError: Can't pickle <function compute_cgr at 0x108392820>: attribute lookup compute_cgr on __main__ failed
 ```
 ### PostDP profiling
-## Comment: better (more controled) profiling method see [2022/05/16](#20220516) continue to end of notebook for correct method
-For postDP refactor profiling, **the code used was from commit 99beda1**. Results are found in `Profiling/Initial attempts/BacteriaTest_postDP_cleanvenv` with `postDP_profile.prof` file being the cProfile output. Profiling was run from the command line in a new and unique python 3.9.0 virtual environment; installed modules are listed in `postDP_cleanvenv_requirements.txt`. The following command was used for post DP profiling: `python -m cProfile -o ./postDP_profile.prof -m MLDSP_core.main path/to/BacteriaTest/fastas path/to/metadata.csv -k 6 -r BacteriaTest`. The aproximate total runtime was **~1800 s** or 2X the pre sharcnet DP runtime.
+## Comment: better (more controled) profiling method see [2022/05/16](#20220516), continue to end of notebook for correct method
+For post DP refactor profiling, **the code used was from commit 99beda1**. Results are found in [Profiling/Initial attempts/BacteriaTest_postDP_cleanvenv](../Profiling/Initial%20attempts/BacteriaTest_postDP_cleanvenv) with [postDP_profile.prof](../Profiling/Initial%20attempts/BacteriaTest_postDP_cleanvenv/postDP_profile.prof) file being the cProfile output. Profiling was run from the command line in a new and unique python 3.9.0 virtual environment; installed modules are listed in [postDP_cleanvenv_requirements.txt](../Profiling/Initial%20attempts/BacteriaTest_postDP_cleanvenv/postDP_cleanvenv_requirements.txt). The following command was used for post DP profiling: `python -m cProfile -o ./postDP_profile.prof -m MLDSP_core.main path/to/BacteriaTest/fastas path/to/metadata.csv -k 6 -r BacteriaTest`. The aproximate total runtime was **~1800 s** or 2X the pre sharcnet DP runtime.
 
 ## 2022/05/13
 VS Code extensions were found to be auto updating and turned off, going forward unless otherwise stated versions will be: 
@@ -171,30 +171,30 @@ yzhang.markdown-all-in-one@3.4.3
 ```
 
 ## 2022/05/16
-Concerns were raised about comparing profiling results between in script vs command-line execution of cProfile and various background programs along with VS Code confounding profiling results. Profiling was re-run for both pre & post sharcnet DP code respectively using the aforementioned commits, python virtual environments, dataset and CGR kmer value as decribed in sub-section [2022/05/12](#20220512). **Main** difference here is only using cProfile in-script; the other differences being that instead of VS Code terminal used, the default MacOS terminal was used to launch the respective pre or post DP version of the MLDSP after all other programs were closed and the local machine restarted. The terminal was the only program opened from the MacOS GUI after restart to launch each profiling run and delete any `__pycache__` present in the virtual environments. This time for postDP profiling the following code was added to the start of  `main.py` script (line 9):
+Concerns were raised about comparing profiling results between in script vs command-line execution of cProfile and various background programs along with VS Code confounding profiling results. Profiling was re-run for both pre & post sharcnet DP code respectively using the aforementioned commits, python virtual environments, dataset and CGR kmer value as decribed in sub-section [2022/05/12](#20220512). **Main** difference here is only using cProfile in-script; the other differences being that instead of VS Code terminal used, the default MacOS terminal was used to launch the respective pre or post DP version of the MLDSP after all other programs were closed and the local machine restarted. The terminal was the only program opened from the MacOS GUI after restart to launch each profiling run and delete any `__pycache__` present in the virtual environments. This time for post DP profiling the following code was added to the start of  `main.py` script (line 9):
 ```
 import cProfile
 profiler = cProfile.Profile()
 profiler.enable()
 ```
-and the following at the end of the `main.py` script (line 278 as seen in commit 99beda1, N.B lines numbers shifted after addition of .enable codeblock)
+and the following at the end of the `main.py` script (line 278 as seen in commit **99beda1**, N.B lines numbers shifted after addition of .enable codeblock)
 ```
 profiler.disable()
 profiler.dump_stats(f'{args.run_name}_profile.prof')
 ```
-This was done to control for variances in running the CProfile profiler inside the script(previously done for pre DP profiling) vs. as a command-line module (previously done only for post DP profiling). Another possible confounding error is to have the profiler disable function NOT indented under `if __name__ == '__main__':` versus indented as it is in these runs; more experimentation here may be required. **in script execution of cProfile for Post DP was not used until much later [2022/11/14](#20221114) due to incorrect calling of cProfile CLI despite codeblock being added**
-###  Pre DP profiling final results
-MLDSP output from this profiling run can be found in `Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof` with results viewable by downloading & opening the [Pre DP profiling.html](../Profiling/preDP/Pre_DP_profiling.html) the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof). Run time was **829.277 s** and full results can be viewed from the `.prof` using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook.
+This was done to control for variances in running the CProfile profiler inside the script (previously done for pre DP profiling) vs. as a command-line module (previously done only for post DP profiling). Another possible confounding error is to have the profiler disable function NOT indented under `if __name__ == '__main__':` versus indented as it is in these runs; more experimentation here may be required. **in script execution of cProfile for Post DP was not used until much later [2022/11/14](#20221114) due to incorrect calling of cProfile CLI despite codeblock being added**
+###  **Pre DP profiling final results**
+MLDSP output from this profiling run can be found in [Profiling/preDP/Bacteria_fullscript](../Profiling/preDP/Bacteria_fullscript) with profiling results viewable by downloading & opening the [Pre DP profiling.html](../Profiling/preDP/Pre_DP_profiling.html) generated from the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof) using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook. Run time was **829.277 s**. 
 ### Post DP profiling
 ## Comment: re-run several times below, iterave modifications to narrow down runtime gap with Pre DP results, all results under `Profiling/postDP`
 (cProfile in CLI mode here; comparison to preDP incorrect)
-MLDSP output from this profiling run can be found in `Profiling/Initial attempts/Bacteria_fullscript` with the cProfile output file `Bacteria_post_fullscript_profile.prof`. Run time was **~1900 s**. 
+MLDSP output from this profiling run can be found in [Profiling/Initial attempts/Bacteria_fullscript](../Profiling/Initial%20attempts/Bacteria_fullscript) with the cProfile output file [Bacteria_post_fullscript_profile.prof](../Profiling/Initial%20attempts/Bacteria_fullscript/Bacteria_post_fullscript_profile.prof). Run time was **~1900 s**. 
 
 ## 2022/05/25
 ### Ontario covid dataset generously provided by David Chen; encompases all cases of COVID-19 occuring in Ontario, Canada up to December 31 2021.
 ### Comment: Dataset renamed to 'Ontario_gisaid_1' but subsequently deleted as accuracy percentage was misformatted
 ### Ontario covid (gisaid classes) MLDSP run
-MLDSP CLI was run on the cloud machine Ubuntu 20.04 virtual machine with 40 cores, 160 Gb RAM using the Ontario covid data provided by David Chen using the gisaid clade class labels. Clade L with 7 samples was removed from both original metadata and fasta file giving output files: `gisaid_filtered<10.csv` & `ontario_filtered<10.fasta`. Default numerical method (CGR) and k value (7) were used: (note CLI arguments not specified as these are the defaults for this version of MLDSP CLI ). Samples "Canada/Hu-1/2019" and "Microbiologist-in-Chief" were removed from the metadata as they weren't present in the fasta. Command used to run MLDSP CLI: `MLDSP ./daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ ./daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_covid`  
+MLDSP CLI was run on the cloud machine Ubuntu 20.04 virtual machine with 40 cores, 160 Gb RAM using the Ontario covid data provided by David Chen using the gisaid clade class labels. Clade L with 7 samples was removed from both original metadata and fasta file giving output files: `gisaid_filtered<10.csv` & `ontario_filtered<10.fasta`. Removed sample IDs are listed in [EPI_SET.ipynb](../Scripts/EPI_SET.ipynb). Default numerical method (CGR) and k value (7) were used: (note CLI arguments not specified as these are the defaults for this version of MLDSP CLI ). Samples "Canada/Hu-1/2019" and "Microbiologist-in-Chief" were removed from the metadata as they weren't present in the fasta. Command used to run MLDSP CLI: `MLDSP ./daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ ./daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_covid`  
 
 ## 2022/05/30
 ### Ontario covid (epochs classes) MLDSP run **Ontario_epochs**
@@ -211,13 +211,13 @@ On local machine Post DP profiling was run as previously described on 2022/05/12
 Run **BacteriaTest_postDP_2** time was reduced to ~1500 s by restricting computation of full model only to last fold.
 
 ### MLDSP codebase going forward is branched; will be specified as either daniel or dev branch until merged, dev branch is being kept separate (stale) for post DP profiling. daniel branch is run in a separate python virtual environment on the server
-daniel branch (commit 43120a7) includes classification report (precision, recall & F1), Area Under the Receiver Operator Characteristic 'score' and **BALANCED ACCURACY SCORE**. daniel branch updated to commit 695dd9c modified so that CGR figure shows 1st (arbitrary) CGR from each class in a MLDSP run.
+daniel branch (commit **43120a7**) includes classification report (precision, recall & F1), Area Under the Receiver Operator Characteristic 'score' and **BALANCED ACCURACY SCORE**. daniel branch updated to commit **695dd9c**: modified so that CGR figure shows 1st (arbitrary) CGR from each class in a MLDSP run.
 
 # Comment: Multiple hardware failures occured on the cloud over the next 3 weeks
 Re-ran MLDSP CLI on cloud again, same Ontario covid dataset (Not deduplicated data), identical parameters (cgr, k=7) with gisaid class data but using MLDSP repo **daniel branch (commit 695dd9c)** in a new virtualenv on the cloud; run failed due to server hardware failure, temp. files deleted.  
 
 ### 2022/06/25
-Realized the deduplication command that was ran on 2022/05/30 was incorrect, output file was not deduplicated because I ran it incorrectly, below is the correct command that was re-run: `cat 'ontario_filtered<10.fasta' | seqkit rmdup -P -i -s -o './OneDrive_1_2022-02-06/deduplicated<10.fasta' -D duplicates.txt`, old duplicate outputs from [2022/05/30](#20220530) were removed. The duplicates.txt was used as input into [deduplication.ipynb](../Scripts/deduplication.ipynb) to build the 'removed_duplicates_ont_covid_gisaid.csv' with accession Id, gisaid class label pairs in row where each row represents a set of duplicate records. **No duplicates across multiple classes was observed**. Csv subsequently removed as in breach of GISAID Terms of service. See [2023/01/05](#20230105) for how to reproduce csv table from public data.
+Realized the deduplication command that was ran on [2022/05/30](#20220530) was incorrect, output file was not deduplicated because I ran it incorrectly, below is the correct command that was re-run: `cat 'ontario_filtered<10.fasta' | seqkit rmdup -P -i -s -o './OneDrive_1_2022-02-06/deduplicated<10.fasta' -D duplicates.txt`, old duplicate outputs from [2022/05/30](#20220530) were removed. The duplicates.txt was used as input into [deduplication.ipynb](../Scripts/deduplication.ipynb) to build the 'removed_duplicates_ont_covid_gisaid.csv' with accession Id, gisaid class label pairs in row where each row represents a set of duplicate records. **No duplicates across multiple classes was observed**. Csv subsequently removed as in breach of GISAID Terms of service. See [2023/01/05](#20230105) for how to reproduce csv table from public data.
 output: `4299 duplicated records removed`  
 
 ## Metadata fix
@@ -225,7 +225,7 @@ MLDSP update which changes relational data logic so that all samples in fasta mu
 This is required to run MLDSP with deduplicated datasets without regenerating metadata file.
 
 Deduplicated fasta file `deduplicated<10.fasta` was used in the following run **Ontario_gisaid_3**:
-`MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_3`. MLDSP version here is a local version of future commit 3172c7d
+`MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_3`. MLDSP version here is a local version of future commit **3172c7d**
 
 ### 2022/06/28
 ### Post DP profiling
@@ -240,21 +240,21 @@ MLDSP repo updated to **commit 3172c7d** encompassing metadata changes from [202
 Re-run MLDSP CLI **daniel_branch 3172c7d** on the cloud using `ontario_filtered<10.fasta` data file, this is essentially a rerun of `Ontario_gisaid_2` but using **balanced accuracy score** to make appropriate comaprison between deduplicated (Ontario_gisaid_3) and **non-deduplicated** runs of MLDSP (here named **Ontario_gisaid_4**): `MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_4`.
 
 ## Nextstrain website data
-Ran MLDSP CLI **daniel branch commit: 3172c7d** on local with Nextstrain dataset using both Gisaid clades **Nextstrain_gisaid<20** and Nextstrain clades **Nextstrain<20**. In both cases datasets were cleaned to remove classes with fewer than 20 samples (so each fold in 10X cross validation has at least 2 samples in worst case): `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta`
+Ran MLDSP CLI **daniel branch commit: 3172c7d** on local machine with Nextstrain dataset using both Gisaid clades **Nextstrain_gisaid<20** and Nextstrain clades **Nextstrain<20**. In both cases datasets were cleaned to remove classes with fewer than 20 samples (so each fold in 10X cross validation has at least 2 samples in worst case): `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta`, see [EPI_SET.ipynb](../Scripts/EPI_SET.ipynb) for removed samples.
 
-**Comment: Re-ran below (in-future) several times once coding errors were found**
 Results: `../Results/Incorrect runs/Nextstrain_gisaid` & `../Results/Incorrect runs/Nextstrain_clade`
+**Comment: Re-ran below (in-future) several times once coding errors were found**
 
 ### 2022/11/14
 ### Post DP profiling
 Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -r BacteriaTest_no_testing_2`. **BacteriaTest_no_testing_2; correct run of cProfile in-line reduced runtime to ~1080 s.**
 
-Realized the reason for 2X discrepancy between pre and post Sharcnet Dedicated Programming (DP) is that the pre DP profiling was done with MLDSP MoDMap computed using principle componenet analysis (PCA) method but the post DP profiling was done with MLDSP MoDMap computed using multi-dimensional scaling (MDS). This hypothesis will be tested by running the postDP profiling one more time using the PCA method. 
+**Realized the reason for 2X discrepancy between pre and post Sharcnet Dedicated Programming (DP) is that the pre DP profiling was done with MLDSP MoDMap computed using principle componenet analysis (PCA) method but the post DP profiling was done with MLDSP MoDMap computed using multi-dimensional scaling (MDS). This hypothesis will be tested by running the postDP profiling one more time using the PCA method.** 
 
 ### 2022/11/15
 
-Ran post DP profiling again from same commit **59c47bf (dev branch)** but with MoDMap method set to PCA (full model still commented out)
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_3`. **BacteriaTest_no_testing_3: total run time was ~770s which is faster than the preDP profiling ~830s.** We can see difference in runtime is due to PCA vs MDS when comparing outputs of [profiling.ipynb](../Scripts/profiling.ipynb) with `Profiling/Initial attempts/BacteriaTest_no_testing_2/BacteriaTest_no_testing_2_profile.prof` and `Profiling/Initial attempts/BacteriaTest_no_testing_3/BacteriaTest_no_testing_3_profile.prof`. For an accurate comparison to MATLAB, we must wait for scikit learn pull request #22330
+Ran post DP profiling again from same commit **59c47bf (dev branch)** but with MoDMap method set to PCA (full model still commented out):
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_3`. BacteriaTest_no_testing_3: total run time was ~773 s which is faster than the preDP profiling ~830 s. We can see difference in runtime is due to PCA vs MDS when comparing outputs of [profiling.ipynb](../Scripts/profiling.ipynb) with `Profiling/Initial attempts/BacteriaTest_no_testing_2/BacteriaTest_no_testing_2_profile.prof` and `Profiling/Initial attempts/BacteriaTest_no_testing_3/BacteriaTest_no_testing_3_profile.prof`. For an accurate comparison to MATLAB, we must wait for scikit learn pull request #22330
 
 Ran **Ontario_epochs_2** on the cloud with deduplicated Ontario covid dataset and epochs metadata `nohup MLDSP /home/ubuntu/daniel/daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ /home/ubuntu/daniel/daniel_data/Ontario_covid/epoch_metadata.csv -k 7 -r Ontario_epochs_2 > ./Ontario_epochs_2.log &`
 
@@ -263,7 +263,7 @@ Ran **Ontario_epochs_2** on the cloud with deduplicated Ontario covid dataset an
 MLDSP CLI now ouputs MoDMap.json (same as what is passed to web server) which can be viewed with plotly in python or in jupyter notebook.
 
 ### 2023/01/04
-**PR 14, filtered metadata.csv no longer required, will use all samples from fastas as long as they are present in metadata**. This will eventually allow for using a single metadata file as a database in GUI.  
+**Pull Request 14, filtered metadata.csv no longer required, will use all samples from fastas as long as they are present in metadata**. This will eventually allow for using a single metadata file as a database in GUI.  
 MLDSP github: 'daniel' branch merged into 'dev' branch and 'daniel' branch deleted but all commit numbers remain available in dev branch.
 Longest (max) and shortest (min) sequence length outputs added and class size fixed to show actual class sizes of dataset run instead of class sizes of samples listed in metadata file.
 
@@ -272,16 +272,16 @@ Classification report (precision, F1, macro avg accuracy) seen in output now als
 Profiling code added to MLDSP github, uncommented as needed, all profiling results going forward are from this method.  
 
 Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with **Nextstrain clades** containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_nextstrain<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_nextstrain<20.fasta' -D nextstrain_duplicated.txt` the output was `28 duplicated records removed`.  
-Re-formated deduplication results of Ontario covid data to remove restricted metadata while making deduplication reproducible, see `../Deduplication/Ontario_covid` and [README.md](../Deduplication/README.md)
+Re-formated deduplication results of Ontario covid data to remove restricted metadata while making deduplication reproducible, see [Deduplication/Ontario_covid](../Deduplication/Ontario_covid) and [README.md](../Deduplication/README.md)
 
 ### 2023/01/08
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_5** this is a re-run of `Ontario_gisaid_3` thus deduplicated with balanced accuracy score. No algorithmic change, just using better figure outputs.
 
 ### 2023/01/11
-Ran MLDSP CLI e.g:`nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clades' &`. Both runs using non-deduplicated datasets but their respective cleaned data files only containing the set of samples from clades with greater than 20 samples per clade:  `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta` giving **Nextstrain_gisaid** & **Nextstrain_clade** datasets
+Ran MLDSP CLI on cloud:`nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clades' &`. Both runs using non-deduplicated datasets but their respective cleaned data files only containing the set of samples from clades with greater than 20 samples per clade:  `cleaned_gisaid<20.fasta` & `cleaned_nextstrain<20.fasta` giving **Nextstrain_gisaid** & **Nextstrain_clade** datasets
 
 ### 2023/01/13
-Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_unduplicated**  
+Re-ran MLDSP CLI on cloud with Ontario epochs dataset: **Ontario_epochs_unduplicated** this is a re-run of `Ontario_epochs_2` thus deduplicated.
 
 ### 2023/01/15
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_6** this is a re-run of `Ontario_gisaid_4` (non-deduplicated). No algorithmic change, just using better figure outputs.  
@@ -290,7 +290,8 @@ Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) 
 
 ### 2023/02/14
 Fixed error causing data leakage in 10X cross validation leading to inflated accuracy scores & artificially high generalization potential: Distance matrix in training set was only being subset by rows (samples) while retaining all columns (features) including the ones used in the test fold. Now Distance matrix rows & columns are subset by training sample indices and test sample indices are used to select samples (rows) while columns are subset on training indices since feature vector length must be the same in train & test sets. Therefore, testing set columns are lost but this information is only the relationship between test set samples, not relative to training set & is not considered data leakeage.
-
+# Only results going forward are used in Thesis and subsequent publications
+## pipeline validation unaffected, ML results need to be re-run
 ### 2023/03/20
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_7** this is a re-run of `Ontario_gisaid_6` (non-deduplicated) with fixed classification code from [2023/02/14](#20230214): `nohup MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/gisaid_filtered\<10.csv -r Ontario_gisaid_7 &`.
 
@@ -298,28 +299,32 @@ Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_7** this 
 Re-ran MLDSP CLI on cloud with Ontario epochs dataset **Ontario_epochs_3** this is a re-run of `Ontario_epochs_unduplicated` (non-deduplicated) with fixed classification code from [2023/02/14](#20230214): `nohup MLDSP daniel_data/Ontario_covid/OneDrive_1_2022-02-06/ daniel_data/Ontario_covid/epochs_metadata.csv -r Ontario_epochs_3 &`.
 
 ### 2023/03/25
-Re-ran MLDSP CLI on cloud with Nextstrain dataset both gisaid: `cleaned_gisaid<20.fasta` and nextstrain clade metadata: `cleaned_nextstrain<20.fasta` this is a re-run from [2023/01/11](#20230111) with fixed cross validation. `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/gisaid_metadata.csv' -r 'Nextstrain_gisaid_2' &` **Nextstrain_gisaid_2** (non-deduplicated)
+Re-ran MLDSP CLI on cloud with Nextstrain dataset both gisaid: `cleaned_gisaid<20.fasta` and nextstrain clade metadata: `cleaned_nextstrain<20.fasta` this is a re-run from [2023/01/11](#20230111) with fixed cross validation code from [2023/02/14](#20230214). `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/gisaid_metadata.csv' -r 'Nextstrain_gisaid_2' &` **Nextstrain_gisaid_2** (non-deduplicated)
 
 `nohup MLDSP '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas' '/home/ubuntu/daniel/daniel_data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/nextstrain_metadata.csv' -r 'Nextstrain_clade_2' &` **Nextstrain_clade_2** (non-deduplicated)
 
-On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the fixed cross validation code commit:  
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/metadata.csv -r Dengue_2`  
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/metadata.csv -r Influenza_2`  
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/metadata.csv -r Primates_2`  
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -r Bacteria_2`
+On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the fixed cross validation code from [2023/02/14](#20230214):  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Dengue/metadata.csv -r Dengue_2` **Dengue_2** 
+
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/metadata.csv -r Influenza_2`  **Influenza_2**
+
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/metadata.csv -r Primates_2`  **Primates_2**
+
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -r Bacteria_2` **Bacteria_2**
 
 `deduplicated_gisaid<20.fasta` from [2023/01/15](#20230115) moved to cloud VM.
 
 ### 2023/04/02
-`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4` ~Run time 1500s
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4`  **BacteriaTest_no_testing_4 Run time: ~1500s**
 ### 2024/03/23 
-BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using committ **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6** (probability=True). However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
+BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using commit **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6** (probability=True). However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
 ## Actual final post sharcnet DP profiling results
-Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. ~Run time 760s  
+Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. **~Run time 760s ** 
 
-Jumped back to current committ **e424fa1** and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** ~Run time 731s
+Jumped back to current commit **e424fa1** and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** **~Run time 731s**
+For pre DP profiling results see [Pre DP profiling final results](#20220516) (831s).
 ### 2024/05/09
-# Notes on results including accuracy scores, AUROC
+## Notes on results including accuracy scores, AUROC
 ## Log files
 #### AUROC
 sklearn.metrics.roc_auc_score (per fold per class inside classify_distmat)>log
@@ -341,4 +346,9 @@ For covid datasts to AUROC_averages.ipynb>calculate unweighted mean over X CV fo
 For validation datasts to AUROC_average.xlsx>calculate unweighted mean over X CV folds>manually add to dataset_accuracy.tex
 
 # Validation of Intercluster distances
-Validation was not possible in 2021 as Intercluster distances are only available on MLDSP-GUI. To manually validate intercluster distances from python run [here](../Validation/Intercluster%20validation/cgr/Images/Intercluster%20distance.csv)  is being compared to a local run of MLDSP-GUI also with CGR k=5, distance excel can be found in Validation folder [IntClustDist.xls](../Validation/Intercluster%20validation/IntClustDist.xls)
+Validation was not possible in 2021 as Intercluster distances are only available on MLDSP-GUI. To manually validate intercluster distances from python run [here](../Results/Primates_2/Images/Intercluster_distance.csv) is being compared to a local run of MLDSP-GUI also with CGR k=7, distance excel can be found in Validation folder: [IntClustDist.xls](../Validation/Intercluster%20validation/IntClustDist.xls). MLDSP_GUI accuracies are also used for Table "Comparison of Python and MATLAB accuracy (%) for benchmark datasets" Linear Discriminant: 98.5, Linear SVM: 95.6, Quad SVM: 97.7, KNN: 96.5.
+### 2024/05/22
+On local machine re-run Primates, Influenza, all with the fixed cross validation code from [2023/02/14](#20230214). **Ran to generate PCA modmap**:  
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/metadata.csv -i 'pca' -r Influenza_3`  **Influenza_3**
+
+`python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/metadata.csv -i 'pca' -r Primates_3`  **Primates_3**
