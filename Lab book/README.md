@@ -70,7 +70,7 @@ Running Mantel test of Dengue dataset vs covid19 gisaid data, may not be appropr
 MATLAB mldsp was previously profiled on [2021/08/23](#20210823) on my mac at the time running macos 11.5 (MATLAB R2019a). The BacteriaTest dataset was used with the cgr numerical method at k=6; the builtin profiler was run using the `Run & Time` button on the MATLAB desktop, as described in the [MATLAB documentation](https://www.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html#mw_e3eebe5c-984d-42ad-8b1f-6269890525fc). All other programs were closed during the profiling run. Profiling results can be found in [Profiling/MATLAB/Timing.pdf](../Profiling/MATLAB/Bacteria_Timing.pdf), the approximate run time was **~590 s**.  
 Attempting to reproduce profiling with python version (pre & post DP)
 ## 2022/04/13
-Mac OS auto updated following an overnight crash from 11.6 to `11.6.5 (20G527)`. 
+MacOS auto updated following an overnight crash from 11.6 to `11.6.5 (20G527)`. 
 VS Code updates were turned off, going forward: `Version: 1.66.2
 Commit: dfd34e8260c270da74b5c2d86d61aee4b6d56977
 Date: 2022-04-11T07:49:20.994Z
@@ -183,7 +183,7 @@ profiler.disable()
 profiler.dump_stats(f'{args.run_name}_profile.prof')
 ```
 This was done to control for variances in running the CProfile profiler inside the script (previously done for pre DP profiling) vs. as a command-line module (previously done only for post DP profiling). Another possible confounding error is to have the profiler disable function NOT indented under `if __name__ == '__main__':` versus indented as it is in these runs; more experimentation here may be required. **in script execution of cProfile for Post DP was not used until much later [2022/11/14](#20221114) due to incorrect calling of cProfile CLI despite codeblock being added**
-###  **Pre DP profiling final results**
+###  **Pre DP profiling final results (pca)**
 MLDSP output from this profiling run can be found in [Profiling/preDP/Bacteria_fullscript](../Profiling/preDP/Bacteria_fullscript) with profiling results viewable by downloading & opening the [Pre DP profiling.html](../Profiling/preDP/Pre_DP_profiling.html) generated from the cProfile output file [Bacteria_fullscript_profile.prof](../Profiling/preDP/Bacteria_fullscript/Bacteria_fullscript_profile.prof) using the [profiling.ipynb](../Scripts/profiling.ipynb) jupyter notebook. Run time was **829.277 s**. 
 ### Post DP profiling
 ## Comment: re-run several times below, iterave modifications to narrow down runtime gap with Pre DP results, all results under `Profiling/postDP`
@@ -287,7 +287,8 @@ Re-ran MLDSP CLI on cloud with Ontario epochs dataset: **Ontario_epochs_unduplic
 Re-ran MLDSP CLI on cloud with Ontario gisaid dataset **Ontario_gisaid_6** this is a re-run of `Ontario_gisaid_4` (non-deduplicated). No algorithmic change, just using better figure outputs.  
 
 Attempted deduplication on Nextstrain website data from [2022/01/11](#20220111) on local machine with **gisaid clades** containing fewer than 20 samples removed. Command used: `cat '/Volumes/NVME-ssd/Gisaid data/Gisaid data 01:11:22/hcov_global_2022-01-09_23-30/Testing/Fastas/cleaned_gisaid<20.fasta' | seqkit rmdup -P -i -s -o './deduplicated_gisaid<20.fasta' -D gisaid_duplicated.txt` the output was `28 duplicated records removed`
-
+## 2023/01/23
+MacOS updated to 13.2
 ### 2023/02/14
 Fixed error causing data leakage in 10X cross validation leading to inflated accuracy scores & artificially high generalization potential: Distance matrix in training set was only being subset by rows (samples) while retaining all columns (features) including the ones used in the test fold. Now Distance matrix rows & columns are subset by training sample indices and test sample indices are used to select samples (rows) while columns are subset on training indices since feature vector length must be the same in train & test sets. Therefore, testing set columns are lost but this information is only the relationship between test set samples, not relative to training set & is not considered data leakeage.
 # Only results going forward are used in Thesis and subsequent publications
@@ -318,7 +319,7 @@ On local machine re-run Primates, Influenza, Dengue and Bacteria, all with the f
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_4`  **BacteriaTest_no_testing_4 Run time: ~1500s**
 ### 2024/03/23 
 BacteriaTest_no_testing_4 was significantly slower. This profiling run was done using commit **e424fa1** which had many improvements in algorithm, results, and figure outputs which may be slowing down performance and not representative of feature parity with MLDSP MATLAB, particularly the changes made to SVM at commit **2df24a6** (probability=True). However it is important to test that critical bug fix such as data-leakge fixed by **912d0bb** do not impact run time. Therefore, attempting profiling once more having reverted to **59c47bf (dev branch)** but with changes done in **912d0bb** classification.py lines 84-87 reproduced locally for profiling run, full model training in classification.py lines 95-96 commented out as in previous profilings.
-## Actual final post sharcnet DP profiling results
+## Actual final post sharcnet DP profiling results (pca)
 Re-ran post DP profiling on local machine with cProfile in-line as shown in the [cProfile code blocks](#cprofile-code-blocks) using the following command: `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/fastas /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/BacteriaTest/metadata.csv -k 6 -i 'pca' -r BacteriaTest_no_testing_5`. **~Run time 760s ** 
 
 Jumped back to current commit **e424fa1** and re-ran but with probability=False for SVM & no associated AUROC, full model training is still off, same command as BacteriaTest_no_testing_5. **BacteriaTest_no_testing_6** **~Run time 731s**
@@ -352,3 +353,5 @@ On local machine re-run Primates, Influenza, all with the fixed cross validation
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Influenza/metadata.csv -i 'pca' -r Influenza_3`  **Influenza_3**
 
 `python -m MLDSP_core.main /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/fastas/ /Users/dolteanu/local_documents/Coding/MLDSP_dev_git/data/Primates/metadata.csv -i 'pca' -r Primates_3`  **Primates_3**
+### 2024/12/08
+The per class precision, recall, f1 tables for the covid data are just averages of the per classifier one. Zero values excluded such that the mean is out of 3 classifiers rather than 4 and rounded to 2 sig figs
